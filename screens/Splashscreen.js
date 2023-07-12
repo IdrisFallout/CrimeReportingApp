@@ -39,6 +39,11 @@ const styles = StyleSheet.create({
     shadowOpacity: 1,
     width: 109,
     height: 109,
+    transform: [
+      {
+        rotate: "45deg",
+      },
+    ],
   },
   splashscreen: {
     backgroundColor: "#fff",
