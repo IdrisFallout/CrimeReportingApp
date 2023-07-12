@@ -1,5 +1,6 @@
 import * as React from "react";
-import { Image, StyleSheet, View } from "react-native";
+import { Image } from "expo-image";
+import { StyleSheet, View } from "react-native";
 
 const Splashscreen = () => {
   return (
@@ -7,7 +8,7 @@ const Splashscreen = () => {
       <View style={[styles.logoContainer, styles.splashscreenFlexBox]}>
         <Image
           style={styles.logoIcon}
-          resizeMode="cover"
+          contentFit="cover"
           source={require("../assets/logo.png")}
         />
       </View>
