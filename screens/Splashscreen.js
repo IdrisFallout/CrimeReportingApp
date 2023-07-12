@@ -1,10 +1,15 @@
 import * as React from "react";
 import { Image } from "expo-image";
 import { StyleSheet, View } from "react-native";
+import { LinearGradient } from "expo-linear-gradient";
 
 const Splashscreen = () => {
   return (
-    <View style={[styles.splashscreen, styles.splashscreenFlexBox]}>
+    <LinearGradient
+      style={[styles.splashscreen, styles.splashscreenFlexBox]}
+      locations={[0, 1]}
+      colors={["#f5f5f5", "rgba(0, 0, 0, 0)"]}
+    >
       <View style={[styles.logoContainer, styles.splashscreenFlexBox]}>
         <Image
           style={styles.logoIcon}
@@ -12,7 +17,7 @@ const Splashscreen = () => {
           source={require("../assets/logo.png")}
         />
       </View>
-    </View>
+    </LinearGradient>
   );
 };
 
@@ -39,17 +44,12 @@ const styles = StyleSheet.create({
     shadowOpacity: 1,
     width: 109,
     height: 109,
-    transform: [
-      {
-        rotate: "45deg",
-      },
-    ],
   },
   splashscreen: {
-    backgroundColor: "#fff",
     flex: 1,
     width: "100%",
     height: 800,
+    backgroundColor: "transparent",
   },
 });
 
