@@ -1,23 +1,24 @@
 import * as React from "react";
 import { Image } from "expo-image";
-import { StyleSheet, View } from "react-native";
-import { LinearGradient } from "expo-linear-gradient";
+import { StyleSheet, View, Text } from "react-native";
+import { FontFamily } from "../GlobalStyles";
 
 const Splashscreen = () => {
   return (
-    <LinearGradient
-      style={[styles.splashscreen, styles.splashscreenFlexBox]}
-      locations={[0, 1]}
-      colors={["#f5f5f5", "rgba(0, 0, 0, 0)"]}
-    >
-      <View style={[styles.logoContainer, styles.splashscreenFlexBox]}>
-        <Image
-          style={styles.logoIcon}
-          contentFit="cover"
-          source={require("../assets/logo.png")}
-        />
+    <View style={[styles.splashscreen, styles.splashscreenFlexBox]}>
+      <View style={[styles.splashcontents, styles.splashscreenFlexBox]}>
+        <View style={[styles.logoContainer, styles.splashscreenFlexBox]}>
+          <Image
+            style={styles.logoIcon}
+            contentFit="cover"
+            source={require("../assets/logo.png")}
+          />
+        </View>
+        <Text style={[styles.utumishiKwaWote, styles.splashscreenFlexBox]}>
+          UTUMISHI KWA WOTE
+        </Text>
       </View>
-    </LinearGradient>
+    </View>
   );
 };
 
@@ -25,7 +26,6 @@ const styles = StyleSheet.create({
   splashscreenFlexBox: {
     justifyContent: "center",
     alignItems: "center",
-    overflow: "hidden",
   },
   logoIcon: {
     width: 91,
@@ -44,12 +44,33 @@ const styles = StyleSheet.create({
     shadowOpacity: 1,
     width: 109,
     height: 109,
+    overflow: "hidden",
+    alignItems: "center",
+  },
+  utumishiKwaWote: {
+    fontSize: 11,
+    fontStyle: "italic",
+    fontWeight: "800",
+    fontFamily: FontFamily.inter,
+    color: "#000",
+    textAlign: "center",
+    display: "flex",
+    width: 121,
+    height: 22,
+  },
+  splashcontents: {
+    paddingHorizontal: 61,
+    paddingVertical: 67,
+    overflow: "hidden",
+    alignItems: "center",
   },
   splashscreen: {
+    backgroundColor: "#fff",
     flex: 1,
     width: "100%",
     height: 800,
-    backgroundColor: "transparent",
+    overflow: "hidden",
+    alignItems: "center",
   },
 });
 
