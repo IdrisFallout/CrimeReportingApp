@@ -1,6 +1,7 @@
 /* fonts */
 export const FontFamily = {
-  inter: "Inter",
+  robotoExtraboldItalic: "Roboto_extrabold_italic",
+  robotoExtrabold: "Roboto_extrabold",
 };
 /* Colors */
 export const Color = {

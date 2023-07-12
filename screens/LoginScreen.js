@@ -1,8 +1,8 @@
 import React, { useCallback } from "react";
 import { Image } from "expo-image";
-import { StyleSheet, View, Text, Alert } from "react-native";
+import { StyleSheet, View, Text, ImageBackground, Alert } from "react-native";
 import { Button } from "@ui-kitten/components";
-import { FontFamily, Border, Color } from "../GlobalStyles";
+import { FontFamily, Color, Border } from "../GlobalStyles";
 
 const LoginScreen = () => {
   const onLoginButtonClick = useCallback(() => {
@@ -10,8 +10,18 @@ const LoginScreen = () => {
   }, []);
 
   return (
-    <View style={[styles.loginScreen, styles.loginFlexBox]}>
-      <View style={[styles.splashcontents, styles.loginFlexBox]}>
+    <ImageBackground
+      style={[styles.loginScreenIcon, styles.loginFlexBox]}
+      resizeMode="cover"
+      source={require("../assets/loginscreen.png")}
+    >
+      <Image
+        style={[styles.kenyaFlagBackgroundIcon, styles.splashcontentsPosition]}
+        contentFit="cover"
+        source={require("../assets/kenyaflagbackground.png")}
+      />
+      <View style={styles.curveDesign} />
+      <View style={[styles.splashcontents, styles.splashcontentsPosition]}>
         <View style={[styles.logoContainer, styles.loginFlexBox]}>
           <Image
             style={styles.logoIcon}
@@ -27,29 +37,50 @@ const LoginScreen = () => {
         size="medium"
         status="primary"
         appearance="filled"
-        color="#003194"
+        color="#224092"
         textStyle={styles.loginButtonText}
         onLongPress={onLoginButtonClick}
       >
         Login
       </Button>
-    </View>
+    </ImageBackground>
   );
 };
 
 const styles = StyleSheet.create({
   loginButtonText: {
     fontWeight: "800",
-    fontFamily: "Inter",
+    fontFamily: "Roboto_extrabold",
   },
   loginFlexBox: {
     justifyContent: "center",
     alignItems: "center",
+  },
+  splashcontentsPosition: {
+    width: 360,
+    top: 0,
+    position: "absolute",
     overflow: "hidden",
   },
   loginTypo: {
-    fontFamily: FontFamily.inter,
+    fontFamily: FontFamily.robotoExtrabold,
     fontWeight: "800",
+  },
+  kenyaFlagBackgroundIcon: {
+    left: 0,
+    height: 252,
+    zIndex: 0,
+  },
+  curveDesign: {
+    top: 136,
+    left: -12,
+    borderRadius: 150,
+    backgroundColor: Color.white,
+    width: 842,
+    height: 875,
+    zIndex: 1,
+    position: "absolute",
+    overflow: "hidden",
   },
   logoIcon: {
     width: 91,
@@ -68,6 +99,8 @@ const styles = StyleSheet.create({
     shadowOpacity: 1,
     width: 109,
     height: 109,
+    overflow: "hidden",
+    alignItems: "center",
   },
   login: {
     fontSize: 32,
@@ -76,25 +109,27 @@ const styles = StyleSheet.create({
     marginTop: 21,
   },
   splashcontents: {
-    position: "absolute",
     marginLeft: -180,
-    top: 0,
     left: "50%",
-    width: 360,
     paddingTop: 53,
-    zIndex: 0,
+    zIndex: 2,
+    justifyContent: "center",
+    alignItems: "center",
   },
   loginButton: {
     borderRadius: 5,
     paddingHorizontal: 94,
     paddingVertical: 11,
-    zIndex: 1,
+    zIndex: 3,
+    overflow: "hidden",
+    alignItems: "center",
   },
-  loginScreen: {
-    backgroundColor: Color.white,
+  loginScreenIcon: {
     flex: 1,
     width: "100%",
     height: 800,
+    overflow: "hidden",
+    alignItems: "center",
   },
 });
 
