@@ -1,6 +1,13 @@
 import React, { useCallback } from "react";
+import {
+  ImageBackground,
+  StyleSheet,
+  View,
+  Text,
+  TextInput,
+  Alert,
+} from "react-native";
 import { Image } from "expo-image";
-import { StyleSheet, View, Text, TextInput, Alert } from "react-native";
 import { Button } from "@ui-kitten/components";
 import { FontFamily, Color, Border } from "../GlobalStyles";
 
@@ -10,15 +17,15 @@ const LoginScreen = () => {
   }, []);
 
   return (
-    <View style={[styles.loginScreen, styles.loginScreenFlexBox]}>
-      <Image
+    <View style={[styles.loginScreen, styles.loginContainerFlexBox]}>
+      <ImageBackground
         style={[styles.kenyaFlagBackgroundIcon, styles.splashcontentsPosition]}
-        contentFit="cover"
+        resizeMode="cover"
         source={require("../assets/kenyaflagbackground.png")}
       />
       <View style={styles.curveDesign} />
       <View style={[styles.splashcontents, styles.splashcontentsPosition]}>
-        <View style={[styles.logoContainer, styles.loginScreenFlexBox]}>
+        <View style={[styles.logoContainer, styles.loginContainerFlexBox]}>
           <Image
             style={styles.logoIcon}
             contentFit="cover"
@@ -27,7 +34,7 @@ const LoginScreen = () => {
         </View>
         <Text style={[styles.login, styles.loginTypo]}>LOGIN</Text>
       </View>
-      <View style={styles.loginContainer}>
+      <View style={[styles.loginContainer, styles.loginContainerFlexBox]}>
         <TextInput
           style={[styles.phone, styles.phoneBorder]}
           placeholder="Phone"
@@ -62,17 +69,19 @@ const styles = StyleSheet.create({
     fontWeight: "800",
     fontFamily: "Roboto",
   },
-  loginScreenFlexBox: {
+  loginContainerFlexBox: {
     justifyContent: "center",
+    overflow: "hidden",
     alignItems: "center",
   },
   splashcontentsPosition: {
     height: 221,
     width: 360,
+    left: "50%",
     top: 0,
     marginLeft: -180,
-    left: "50%",
     position: "absolute",
+    justifyContent: "center",
     overflow: "hidden",
   },
   loginTypo: {
@@ -125,8 +134,6 @@ const styles = StyleSheet.create({
     shadowOpacity: 1,
     width: 109,
     height: 109,
-    overflow: "hidden",
-    alignItems: "center",
   },
   login: {
     fontSize: 32,
@@ -137,8 +144,11 @@ const styles = StyleSheet.create({
   splashcontents: {
     paddingTop: 53,
     zIndex: 2,
-    justifyContent: "center",
     alignItems: "center",
+    width: 360,
+    left: "50%",
+    top: 0,
+    marginLeft: -180,
   },
   phone: {
     alignSelf: "center",
@@ -164,25 +174,18 @@ const styles = StyleSheet.create({
     paddingVertical: 11,
   },
   loginContainer: {
-    marginLeft: -179.5,
-    bottom: 0,
     paddingHorizontal: 70,
     paddingTop: 260,
     paddingBottom: 189,
     zIndex: 3,
-    left: "50%",
-    position: "absolute",
-    justifyContent: "center",
-    alignItems: "center",
-    overflow: "hidden",
   },
   loginScreen: {
     flex: 1,
     height: 800,
-    overflow: "hidden",
-    alignItems: "center",
     width: "100%",
     backgroundColor: Color.white,
+    justifyContent: "center",
+    overflow: "hidden",
   },
 });
 
