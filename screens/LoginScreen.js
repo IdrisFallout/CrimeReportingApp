@@ -17,15 +17,15 @@ const LoginScreen = () => {
   }, []);
 
   return (
-    <View style={[styles.loginScreen, styles.loginContainerFlexBox]}>
+    <View style={[styles.loginScreen, styles.loginScreenFlexBox]}>
       <ImageBackground
-        style={[styles.kenyaFlagBackgroundIcon, styles.splashcontentsPosition]}
+        style={[styles.kenyaFlagBackgroundIcon, styles.loginContainerFlexBox]}
         resizeMode="cover"
         source={require("../assets/kenyaflagbackground.png")}
       />
       <View style={styles.curveDesign} />
       <View style={[styles.splashcontents, styles.splashcontentsPosition]}>
-        <View style={[styles.logoContainer, styles.loginContainerFlexBox]}>
+        <View style={[styles.logoContainer, styles.loginScreenFlexBox]}>
           <Image
             style={styles.logoIcon}
             contentFit="cover"
@@ -69,10 +69,15 @@ const styles = StyleSheet.create({
     fontWeight: "800",
     fontFamily: "Roboto",
   },
-  loginContainerFlexBox: {
+  loginScreenFlexBox: {
     justifyContent: "center",
     overflow: "hidden",
     alignItems: "center",
+  },
+  loginContainerFlexBox: {
+    alignSelf: "center",
+    justifyContent: "center",
+    overflow: "hidden",
   },
   splashcontentsPosition: {
     height: 221,
@@ -81,8 +86,6 @@ const styles = StyleSheet.create({
     top: 0,
     marginLeft: -180,
     position: "absolute",
-    justifyContent: "center",
-    overflow: "hidden",
   },
   loginTypo: {
     fontFamily: FontFamily.roboto,
@@ -105,6 +108,12 @@ const styles = StyleSheet.create({
   },
   kenyaFlagBackgroundIcon: {
     zIndex: 0,
+    height: 221,
+    width: 360,
+    left: "50%",
+    top: 0,
+    marginLeft: -180,
+    position: "absolute",
   },
   curveDesign: {
     top: 136,
@@ -144,19 +153,17 @@ const styles = StyleSheet.create({
   splashcontents: {
     paddingTop: 53,
     zIndex: 2,
+    justifyContent: "center",
+    overflow: "hidden",
     alignItems: "center",
-    width: 360,
-    left: "50%",
-    top: 0,
-    marginLeft: -180,
   },
   phone: {
-    alignSelf: "center",
     borderRadius: Border.br_8xs,
     padding: 5,
     borderWidth: 1,
     borderColor: "#000",
     borderStyle: "solid",
+    alignSelf: "center",
     justifyContent: "center",
     alignItems: "center",
     overflow: "hidden",
@@ -178,13 +185,14 @@ const styles = StyleSheet.create({
     paddingTop: 260,
     paddingBottom: 189,
     zIndex: 3,
+    alignItems: "center",
+    alignSelf: "center",
   },
   loginScreen: {
     flex: 1,
     height: 800,
     width: "100%",
     backgroundColor: Color.white,
-    justifyContent: "center",
     overflow: "hidden",
   },
 });
