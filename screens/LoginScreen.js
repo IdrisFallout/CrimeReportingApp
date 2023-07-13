@@ -17,15 +17,15 @@ const LoginScreen = () => {
   }, []);
 
   return (
-    <View style={[styles.loginScreen, styles.loginScreenFlexBox]}>
+    <View style={[styles.loginScreen, styles.loginContainerFlexBox]}>
       <ImageBackground
-        style={[styles.kenyaFlagBackgroundIcon, styles.loginContainerFlexBox]}
+        style={[styles.kenyaFlagBackgroundIcon, styles.splashcontentsPosition]}
         resizeMode="cover"
         source={require("../assets/kenyaflagbackground.png")}
       />
       <View style={styles.curveDesign} />
       <View style={[styles.splashcontents, styles.splashcontentsPosition]}>
-        <View style={[styles.logoContainer, styles.loginScreenFlexBox]}>
+        <View style={[styles.logoContainer, styles.loginContainerFlexBox]}>
           <Image
             style={styles.logoIcon}
             contentFit="cover"
@@ -34,7 +34,7 @@ const LoginScreen = () => {
         </View>
         <Text style={[styles.login, styles.loginTypo]}>LOGIN</Text>
       </View>
-      <View style={[styles.loginContainer, styles.loginContainerFlexBox]}>
+      <View style={[styles.loginContainer, styles.splashcontentsPosition]}>
         <TextInput
           style={[styles.phone, styles.phoneBorder]}
           placeholder="Phone"
@@ -69,23 +69,14 @@ const styles = StyleSheet.create({
     fontWeight: "800",
     fontFamily: "Roboto",
   },
-  loginScreenFlexBox: {
+  loginContainerFlexBox: {
     justifyContent: "center",
-    overflow: "hidden",
     alignItems: "center",
   },
-  loginContainerFlexBox: {
-    alignSelf: "center",
-    justifyContent: "center",
-    overflow: "hidden",
-  },
   splashcontentsPosition: {
-    height: 221,
-    width: 360,
     left: "50%",
-    top: 0,
-    marginLeft: -180,
     position: "absolute",
+    overflow: "hidden",
   },
   loginTypo: {
     fontFamily: FontFamily.roboto,
@@ -108,12 +99,9 @@ const styles = StyleSheet.create({
   },
   kenyaFlagBackgroundIcon: {
     zIndex: 0,
-    height: 221,
-    width: 360,
-    left: "50%",
     top: 0,
     marginLeft: -180,
-    position: "absolute",
+    left: "50%",
   },
   curveDesign: {
     top: 136,
@@ -143,6 +131,8 @@ const styles = StyleSheet.create({
     shadowOpacity: 1,
     width: 109,
     height: 109,
+    overflow: "hidden",
+    alignItems: "center",
   },
   login: {
     fontSize: 32,
@@ -151,19 +141,23 @@ const styles = StyleSheet.create({
     marginTop: 21,
   },
   splashcontents: {
+    width: 360,
+    height: 221,
     paddingTop: 53,
     zIndex: 2,
+    top: 0,
+    marginLeft: -180,
+    left: "50%",
     justifyContent: "center",
-    overflow: "hidden",
     alignItems: "center",
   },
   phone: {
+    alignSelf: "center",
     borderRadius: Border.br_8xs,
     padding: 5,
     borderWidth: 1,
     borderColor: "#000",
     borderStyle: "solid",
-    alignSelf: "center",
     justifyContent: "center",
     alignItems: "center",
     overflow: "hidden",
@@ -181,19 +175,22 @@ const styles = StyleSheet.create({
     paddingVertical: 11,
   },
   loginContainer: {
+    marginLeft: -179.5,
+    bottom: 0,
     paddingHorizontal: 70,
     paddingTop: 260,
     paddingBottom: 189,
     zIndex: 3,
+    justifyContent: "center",
     alignItems: "center",
-    alignSelf: "center",
   },
   loginScreen: {
     flex: 1,
     height: 800,
+    overflow: "hidden",
+    alignItems: "center",
     width: "100%",
     backgroundColor: Color.white,
-    overflow: "hidden",
   },
 });
 
