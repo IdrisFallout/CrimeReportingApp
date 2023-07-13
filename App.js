@@ -1,7 +1,7 @@
 const Stack = createNativeStackNavigator();
 import * as React from "react";
 import { NavigationContainer } from "@react-navigation/native";
-
+import { useFonts } from "expo-font";
 import Splashscreen from "./screens/Splashscreen";
 import LoginScreen from "./screens/LoginScreen";
 import MIcon from "react-native-vector-icons/MaterialCommunityIcons";
@@ -19,6 +19,9 @@ import {
 
 const App = () => {
   const [hideSplashScreen, setHideSplashScreen] = React.useState(false);
+  const [fontsLoaded, error] = useFonts({
+    Roboto_regular: require("./assets/fonts/Roboto_regular.ttf"),
+  });
 
   React.useEffect(() => {
     setTimeout(() => {
@@ -51,6 +54,10 @@ const App = () => {
     name: "material",
     icons: createIconsMap(),
   };
+
+  if (!fontsLoaded && !error) {
+    return null;
+  }
 
   return (
     <>
