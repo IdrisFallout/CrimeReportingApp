@@ -2,8 +2,8 @@ const Stack = createNativeStackNavigator();
 import * as React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { useFonts } from "expo-font";
-import Splashscreen from "./screens/Splashscreen";
 import LoginScreen from "./screens/LoginScreen";
+import Splashscreen from "./screens/Splashscreen";
 import MIcon from "react-native-vector-icons/MaterialCommunityIcons";
 import { IconRegistry, ApplicationProvider } from "@ui-kitten/components";
 import * as eva from "@eva-design/eva";
@@ -20,7 +20,8 @@ import {
 const App = () => {
   const [hideSplashScreen, setHideSplashScreen] = React.useState(false);
   const [fontsLoaded, error] = useFonts({
-    Roboto_regular: require("./assets/fonts/Roboto_regular.ttf"),
+    Roboto_extrabold: require("./assets/fonts/Roboto_extrabold.ttf"),
+    Roboto_extrabold_italic: require("./assets/fonts/Roboto_extrabold_italic.ttf"),
   });
 
   React.useEffect(() => {
@@ -70,13 +71,13 @@ const App = () => {
               screenOptions={{ headerShown: false }}
             >
               <Stack.Screen
-                name="Splashscreen"
-                component={Splashscreen}
+                name="LoginScreen"
+                component={LoginScreen}
                 options={{ headerShown: false }}
               />
               <Stack.Screen
-                name="LoginScreen"
-                component={LoginScreen}
+                name="Splashscreen"
+                component={Splashscreen}
                 options={{ headerShown: false }}
               />
             </Stack.Navigator>

@@ -1,15 +1,8 @@
 import React, { useCallback } from "react";
 import { Image } from "expo-image";
-import {
-  StyleSheet,
-  View,
-  Text,
-  TextInput,
-  ImageBackground,
-  Alert,
-} from "react-native";
+import { StyleSheet, View, Text, TextInput, Alert } from "react-native";
 import { Button } from "@ui-kitten/components";
-import { FontFamily, FontSize, Padding, Border, Color } from "../GlobalStyles";
+import { FontFamily, Color, Border } from "../GlobalStyles";
 
 const LoginScreen = () => {
   const onLoginButtonClick = useCallback(() => {
@@ -17,19 +10,15 @@ const LoginScreen = () => {
   }, []);
 
   return (
-    <ImageBackground
-      style={[styles.loginScreenIcon, styles.logoContainerFlexBox]}
-      resizeMode="cover"
-      source={require("../assets/loginscreen.png")}
-    >
+    <View style={[styles.loginScreen, styles.loginScreenFlexBox]}>
       <Image
-        style={styles.kenyaFlagBackgroundIcon}
+        style={[styles.kenyaFlagBackgroundIcon, styles.splashcontentsPosition]}
         contentFit="cover"
         source={require("../assets/kenyaflagbackground.png")}
       />
       <View style={styles.curveDesign} />
-      <View style={[styles.splashcontents, styles.splashcontentsLayout]}>
-        <View style={[styles.logoContainer, styles.logoContainerFlexBox]}>
+      <View style={[styles.splashcontents, styles.splashcontentsPosition]}>
+        <View style={[styles.logoContainer, styles.loginScreenFlexBox]}>
           <Image
             style={styles.logoIcon}
             contentFit="cover"
@@ -38,7 +27,7 @@ const LoginScreen = () => {
         </View>
         <Text style={[styles.login, styles.loginTypo]}>LOGIN</Text>
       </View>
-      <View style={[styles.loginContainer, styles.splashcontentsLayout]}>
+      <View style={styles.loginContainer}>
         <TextInput
           style={[styles.phone, styles.phoneBorder]}
           placeholder="Phone"
@@ -46,13 +35,13 @@ const LoginScreen = () => {
           placeholderTextColor="#000"
         />
         <TextInput
-          style={[styles.password, styles.phoneBorder]}
+          style={[styles.password, styles.passwordFlexBox]}
           placeholder="Password"
           keyboardType="default"
           placeholderTextColor="#000"
         />
         <Button
-          style={styles.loginButton}
+          style={[styles.loginButton, styles.passwordFlexBox]}
           title="Click Me!"
           size="medium"
           status="primary"
@@ -64,65 +53,60 @@ const LoginScreen = () => {
           Login
         </Button>
       </View>
-    </ImageBackground>
+    </View>
   );
 };
 
 const styles = StyleSheet.create({
   loginButtonText: {
     fontWeight: "800",
-    fontFamily: "Roboto_extrabold",
+    fontFamily: "Roboto",
   },
-  logoContainerFlexBox: {
+  loginScreenFlexBox: {
     justifyContent: "center",
     alignItems: "center",
-    overflow: "hidden",
   },
-  splashcontentsLayout: {
+  splashcontentsPosition: {
+    height: 221,
     width: 360,
+    top: 0,
+    marginLeft: -180,
+    left: "50%",
     position: "absolute",
     overflow: "hidden",
   },
   loginTypo: {
-    fontFamily: FontFamily.robotoExtrabold,
+    fontFamily: FontFamily.roboto,
     fontWeight: "800",
   },
   phoneBorder: {
-    fontFamily: FontFamily.robotoRegular,
+    padding: 5,
     borderWidth: 1,
     borderColor: "#000",
     borderStyle: "solid",
-    fontSize: FontSize.size_xs,
-    paddingVertical: Padding.p_2xs,
-    paddingHorizontal: Padding.p_75xl,
-    borderRadius: Border.br_8xs,
-    marginLeft: -109,
-    left: "50%",
+    width: "100%",
     backgroundColor: Color.white,
-    position: "absolute",
+  },
+  passwordFlexBox: {
+    marginTop: 12,
+    borderRadius: Border.br_8xs,
     justifyContent: "center",
     alignItems: "center",
     overflow: "hidden",
   },
   kenyaFlagBackgroundIcon: {
-    maxWidth: "100%",
-    maxHeight: "100%",
     zIndex: 0,
-    left: 0,
-    top: 0,
-    position: "absolute",
-    overflow: "hidden",
   },
   curveDesign: {
     top: 136,
-    left: -12,
+    left: -15,
     borderRadius: 150,
     width: 842,
     height: 875,
     zIndex: 1,
-    backgroundColor: Color.white,
     position: "absolute",
     overflow: "hidden",
+    backgroundColor: Color.white,
   },
   logoIcon: {
     width: 91,
@@ -141,6 +125,8 @@ const styles = StyleSheet.create({
     shadowOpacity: 1,
     width: 109,
     height: 109,
+    overflow: "hidden",
+    alignItems: "center",
   },
   login: {
     fontSize: 32,
@@ -149,45 +135,54 @@ const styles = StyleSheet.create({
     marginTop: 21,
   },
   splashcontents: {
-    marginLeft: -180,
     paddingTop: 53,
     zIndex: 2,
-    left: "50%",
-    width: 360,
-    top: 0,
     justifyContent: "center",
     alignItems: "center",
   },
   phone: {
-    top: 182,
-    fontSize: FontSize.size_xs,
+    alignSelf: "center",
+    borderRadius: Border.br_8xs,
+    padding: 5,
+    borderWidth: 1,
+    borderColor: "#000",
+    borderStyle: "solid",
+    justifyContent: "center",
+    alignItems: "center",
+    overflow: "hidden",
   },
   password: {
-    top: 230,
-    fontSize: FontSize.size_xs,
+    padding: 5,
+    borderWidth: 1,
+    borderColor: "#000",
+    borderStyle: "solid",
+    width: "100%",
+    backgroundColor: Color.white,
   },
   loginButton: {
-    top: 278,
-    paddingVertical: Padding.p_2xs,
-    paddingHorizontal: Padding.p_75xl,
-    borderRadius: Border.br_8xs,
-    marginLeft: -109,
+    paddingHorizontal: 94,
+    paddingVertical: 11,
+  },
+  loginContainer: {
+    marginLeft: -179.5,
+    bottom: 0,
+    paddingHorizontal: 70,
+    paddingTop: 260,
+    paddingBottom: 189,
+    zIndex: 3,
     left: "50%",
     position: "absolute",
     justifyContent: "center",
     alignItems: "center",
     overflow: "hidden",
   },
-  loginContainer: {
-    top: 221,
-    height: 579,
-    zIndex: 3,
-    left: 0,
-  },
-  loginScreenIcon: {
+  loginScreen: {
     flex: 1,
-    width: "100%",
     height: 800,
+    overflow: "hidden",
+    alignItems: "center",
+    width: "100%",
+    backgroundColor: Color.white,
   },
 });
 
