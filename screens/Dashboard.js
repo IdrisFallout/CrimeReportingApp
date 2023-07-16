@@ -6,7 +6,7 @@ import { Color, FontFamily, FontSize } from "../GlobalStyles";
 
 const Dashboard = () => {
   return (
-    <SafeAreaView style={[styles.dashboard, styles.dashboardFlexBox1]}>
+    <View style={[styles.dashboard, styles.dashboardFlexBox1]}>
       <SafeAreaView style={[styles.leftHandOptionsParent, styles.handFlexBox]}>
         <View style={styles.leftHandOptions}>
           <Image
@@ -41,7 +41,7 @@ const Dashboard = () => {
       </SafeAreaView>
       <View style={[styles.dashboardChild, styles.dashboardFlexBox]} />
       <View style={[styles.dashboardItem, styles.dashboardFlexBox]} />
-    </SafeAreaView>
+    </View>
   );
 };
 
@@ -103,6 +103,7 @@ const styles = StyleSheet.create({
     overflow: "hidden",
   },
   dashboardChild: {
+    backgroundColor: "#e1533f",
     justifyContent: "flex-end",
     alignItems: "center",
     flex: 1,
