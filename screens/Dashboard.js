@@ -106,7 +106,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   dashboardItem: {
-    height: 100,
+    height: 60,
     justifyContent: "space-between",
     alignItems: "flex-end",
   },
