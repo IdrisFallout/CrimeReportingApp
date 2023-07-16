@@ -43,7 +43,7 @@ const SignupScreen = () => {
         contentFit="contain"
         source={require("../assets/splashcontents1.png")}
       />
-      <View style={styles.signupContainer}>
+      <View style={[styles.signupContainer, styles.createAccountPosition]}>
         <TextInput
           style={[styles.name, styles.nameBorder]}
           placeholder="Name"
@@ -162,6 +162,10 @@ const styles = StyleSheet.create({
     position: "absolute",
     overflow: "hidden",
   },
+  createAccountPosition: {
+    left: "50%",
+    position: "absolute",
+  },
   nameBorder: {
     padding: 5,
     borderWidth: 1,
@@ -227,12 +231,10 @@ const styles = StyleSheet.create({
     marginTop: 12,
   },
   signupButton: {
-    paddingHorizontal: Padding.p_75xl,
-    paddingVertical: Padding.p_2xs,
+    width: 272,
+    height: 36,
     marginTop: 12,
     borderRadius: Border.br_8xs,
-    justifyContent: "center",
-    alignItems: "center",
     overflow: "hidden",
   },
   alreadyHaveAn: {
@@ -249,11 +251,9 @@ const styles = StyleSheet.create({
     marginLeft: -166,
     bottom: 0,
     paddingHorizontal: Padding.p_11xl,
-    paddingTop: Padding.p_206xl,
+    paddingTop: 70,
     paddingBottom: 115,
     zIndex: 3,
-    left: "50%",
-    position: "absolute",
     justifyContent: "center",
     alignItems: "center",
     overflow: "hidden",
@@ -262,10 +262,10 @@ const styles = StyleSheet.create({
     flex: 1,
     height: 800,
     overflow: "hidden",
-    width: "100%",
-    backgroundColor: Color.white,
     justifyContent: "center",
     alignItems: "center",
+    width: "100%",
+    backgroundColor: Color.white,
   },
 });
 
