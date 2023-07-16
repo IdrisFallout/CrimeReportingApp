@@ -1,13 +1,13 @@
 import * as React from "react";
-import { View, StyleSheet, Text, Pressable } from "react-native";
+import { View, StyleSheet, Text } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 import { Image } from "expo-image";
-import { Button } from "@rneui/themed";
 import { Color, FontFamily, FontSize } from "../GlobalStyles";
 
 const Dashboard = () => {
   return (
-    <View style={[styles.dashboard, styles.dashboardFlexBox1]}>
-      <View style={[styles.leftHandOptionsParent, styles.dashboardFlexBox]}>
+    <SafeAreaView style={[styles.dashboard, styles.dashboardFlexBox1]}>
+      <SafeAreaView style={[styles.leftHandOptionsParent, styles.handFlexBox]}>
         <View style={styles.leftHandOptions}>
           <Image
             style={styles.leftHandOptionsChild}
@@ -21,71 +21,54 @@ const Dashboard = () => {
             </Text>
           </View>
         </View>
-        <View style={[styles.rightHandOptions, styles.dashboardFlexBox1]}>
+        <View style={[styles.rightHandOptions, styles.handFlexBox]}>
           <Image
-            radius="5"
-            iconPosition="left"
-            type="clear"
-            color="#fff"
+            style={styles.iconLayout}
             contentFit="cover"
             source={require("../assets/basilnotificationoutline.png")}
-            containerStyle={styles.basilnotificationOutlineIconBtn}
-            buttonStyle={styles.basilnotificationOutlineIconBtn1}
           />
           <Image
-            style={styles.wpfstatisticsIcon}
+            style={[styles.wpfstatisticsIcon, styles.iconLayout]}
             contentFit="cover"
             source={require("../assets/wpfstatistics.png")}
           />
           <Image
-            radius="5"
-            iconPosition="left"
-            type="clear"
-            color="#fff"
+            style={[styles.wpfstatisticsIcon, styles.iconLayout]}
             contentFit="cover"
             source={require("../assets/materialsymbolsqrcodescanner.png")}
-            containerStyle={styles.materialSymbolsqrCodeScannIconBtn}
-            buttonStyle={styles.materialSymbolsqrCodeScannIconBtn1}
           />
         </View>
-      </View>
+      </SafeAreaView>
       <View style={[styles.dashboardChild, styles.dashboardFlexBox]} />
       <View style={[styles.dashboardItem, styles.dashboardFlexBox]} />
-    </View>
+    </SafeAreaView>
   );
 };
 
 const styles = StyleSheet.create({
-  basilnotificationOutlineIconBtn: {
-    position: "relative",
-  },
-  basilnotificationOutlineIconBtn1: {
-    width: 24,
-    height: 24,
-    overflow: "hidden",
-  },
-  materialSymbolsqrCodeScannIconBtn: {
-    position: "relative",
-  },
-  materialSymbolsqrCodeScannIconBtn1: {
-    width: 24,
-    height: 24,
-    overflow: "hidden",
-  },
   dashboardFlexBox1: {
+    justifyContent: "flex-end",
     alignItems: "center",
-    flex: 1,
   },
-  dashboardFlexBox: {
-    alignSelf: "stretch",
+  handFlexBox: {
+    justifyContent: "space-around",
+    flexDirection: "row",
     alignItems: "center",
-    overflow: "hidden",
   },
   helloTypo: {
     textAlign: "left",
     color: Color.black,
     fontFamily: FontFamily.roboto,
     fontWeight: "800",
+  },
+  iconLayout: {
+    height: 24,
+    width: 24,
+    overflow: "hidden",
+  },
+  dashboardFlexBox: {
+    alignSelf: "stretch",
+    overflow: "hidden",
   },
   leftHandOptionsChild: {
     width: 44,
@@ -105,36 +88,36 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   wpfstatisticsIcon: {
-    width: 24,
-    height: 24,
-    overflow: "hidden",
+    marginLeft: 11,
   },
   rightHandOptions: {
     paddingHorizontal: 7,
     paddingVertical: 9,
-    justifyContent: "space-between",
-    marginLeft: 124,
-    flexDirection: "row",
+    marginLeft: 110,
   },
   leftHandOptionsParent: {
     paddingHorizontal: 12,
     paddingTop: 22,
-    justifyContent: "center",
-    flexDirection: "row",
+    alignSelf: "stretch",
+    overflow: "hidden",
   },
   dashboardChild: {
     justifyContent: "flex-end",
+    alignItems: "center",
     flex: 1,
+    alignSelf: "stretch",
   },
   dashboardItem: {
     justifyContent: "flex-end",
+    alignItems: "center",
   },
   dashboard: {
     backgroundColor: Color.white,
     width: "100%",
     height: 801,
-    justifyContent: "flex-end",
     overflow: "hidden",
+    alignItems: "center",
+    flex: 1,
   },
 });
 
