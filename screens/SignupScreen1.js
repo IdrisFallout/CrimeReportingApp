@@ -219,8 +219,8 @@ const styles = StyleSheet.create({
   signupContainer: {
     marginLeft: -115,
     bottom: 0,
-    paddingHorizontal: 0,
-    paddingVertical: 180,
+    paddingTop: 180,
+    paddingBottom: 73,
     alignSelf: "center",
     alignItems: "center",
     left: "50%",
