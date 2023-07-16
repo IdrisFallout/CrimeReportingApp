@@ -39,8 +39,8 @@ const Dashboard = () => {
           />
         </View>
       </SafeAreaView>
-      <View style={[styles.dashboardChild, styles.dashboardFlexBox]} />
-      <View style={[styles.dashboardItem, styles.dashboardFlexBox]} />
+      <SafeAreaView style={[styles.dashboardChild, styles.dashboardFlexBox]} />
+      <SafeAreaView style={[styles.dashboardItem, styles.dashboardFlexBox]} />
     </View>
   );
 };
