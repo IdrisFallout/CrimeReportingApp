@@ -180,7 +180,7 @@ const styles = StyleSheet.create({
   loginContainer: {
     marginLeft: -139,
     bottom: 0,
-    paddingHorizontal: Padding.p_11xl,
+    paddingHorizontal: 30,
     paddingVertical: 225,
     zIndex: 3,
     left: "50%",
