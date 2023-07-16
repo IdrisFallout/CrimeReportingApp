@@ -15,7 +15,7 @@ import {
 import DropDownPicker from "react-native-dropdown-picker";
 import { Button } from "@rneui/themed";
 import { useNavigation } from "@react-navigation/native";
-import { Color, Border, FontFamily, FontSize, Padding } from "../GlobalStyles";
+import { Border, Color, FontFamily, FontSize, Padding } from "../GlobalStyles";
 
 const SignupScreen = () => {
   const [dateOfBirthDatePicker, setDateOfBirthDatePicker] = useState(undefined);
@@ -37,21 +37,22 @@ const SignupScreen = () => {
         resizeMode="cover"
         source={require("../assets/kenyaflagbackground.png")}
       />
-      <View style={[styles.curveDesign, styles.curveDesignBg]} />
+      <View style={[styles.curveDesign, styles.curveDesignPosition]} />
       <Image
         style={[styles.splashcontentsIcon, styles.iconPosition]}
         contentFit="contain"
         source={require("../assets/splashcontents1.png")}
       />
-      <View style={styles.signupContainer}>
+      <View style={[styles.signupContainer, styles.curveDesignPosition]}>
         <TextInput
-          style={[styles.name, styles.passwordBorder]}
+          style={[styles.name, styles.nameBorder]}
           placeholder="Name"
           keyboardType="default"
           secureTextEntry={false}
           placeholderTextColor="#000"
         />
         <RNKDatepicker
+          style={styles.dateOfBirth}
           date={dateOfBirthDatePicker}
           onSelect={setDateOfBirthDatePicker}
           controlStyle={styles.dateOfBirthValue}
@@ -66,27 +67,27 @@ const SignupScreen = () => {
           />
         </View>
         <TextInput
-          style={[styles.address, styles.passwordBorder]}
+          style={[styles.address, styles.nameBorder]}
           placeholder="Address"
           keyboardType="default"
           placeholderTextColor="#000"
         />
         <TextInput
-          style={[styles.phone, styles.passwordBorder]}
+          style={[styles.address, styles.nameBorder]}
           placeholder="Phone"
           keyboardType="phone-pad"
           secureTextEntry={false}
           placeholderTextColor="#000"
         />
         <TextInput
-          style={[styles.password, styles.passwordBorder]}
+          style={[styles.password, styles.nameBorder]}
           placeholder="PIN"
           keyboardType="numeric"
           secureTextEntry={true}
           placeholderTextColor="#000"
         />
         <TextInput
-          style={[styles.confirmPassword, styles.passwordBorder]}
+          style={[styles.password, styles.nameBorder]}
           placeholder="Confirm PIN"
           keyboardType="numeric"
           secureTextEntry={true}
@@ -110,7 +111,7 @@ const SignupScreen = () => {
           </Text>
           <Button
             style={styles.login}
-            title="Sign Up"
+            title="Login"
             radius="5"
             iconPosition="left"
             type="clear"
@@ -155,24 +156,22 @@ const styles = StyleSheet.create({
   iconPosition: {
     height: 221,
     width: 360,
+    left: "50%",
     top: 0,
     marginLeft: -180,
-    left: "50%",
     position: "absolute",
     overflow: "hidden",
   },
-  curveDesignBg: {
+  curveDesignPosition: {
+    position: "absolute",
     overflow: "hidden",
-    backgroundColor: Color.white,
   },
-  passwordBorder: {
+  nameBorder: {
     padding: 5,
     borderWidth: 1,
     borderColor: "#000",
     borderStyle: "solid",
     borderRadius: Border.br_8xs,
-    left: 36,
-    position: "absolute",
     justifyContent: "center",
     alignItems: "center",
     overflow: "hidden",
@@ -195,17 +194,18 @@ const styles = StyleSheet.create({
     width: 842,
     height: 875,
     zIndex: 1,
-    position: "absolute",
-    overflow: "hidden",
     backgroundColor: Color.white,
+    position: "absolute",
   },
   splashcontentsIcon: {
     zIndex: 2,
   },
   name: {
-    top: 70,
     alignSelf: "center",
     padding: 5,
+  },
+  dateOfBirth: {
+    marginTop: 12,
   },
   dropdownpicker: {
     borderWidth: 1,
@@ -214,38 +214,26 @@ const styles = StyleSheet.create({
     backgroundColor: Color.white,
   },
   gender: {
-    top: 166,
+    marginTop: 12,
     borderStyle: "solid",
-    left: 36,
     borderRadius: Border.br_8xs,
-    position: "absolute",
     justifyContent: "center",
     alignItems: "center",
     overflow: "hidden",
   },
   address: {
-    top: 214,
-    alignSelf: "center",
-    padding: 5,
-  },
-  phone: {
-    top: 262,
+    marginTop: 12,
     alignSelf: "center",
     padding: 5,
   },
   password: {
-    top: 310,
-  },
-  confirmPassword: {
-    top: 358,
+    marginTop: 12,
   },
   signupButton: {
-    top: 406,
-    left: 30,
     paddingHorizontal: Padding.p_75xl,
     paddingVertical: Padding.p_2xs,
+    marginTop: 12,
     borderRadius: Border.br_8xs,
-    position: "absolute",
     justifyContent: "center",
     alignItems: "center",
     overflow: "hidden",
@@ -257,29 +245,26 @@ const styles = StyleSheet.create({
     marginLeft: 3,
   },
   signupSuggestion: {
-    top: 454,
-    left: 59,
     flexDirection: "row",
-    position: "absolute",
+    marginTop: 12,
   },
   signupContainer: {
-    marginLeft: -145,
     bottom: 0,
-    width: 291,
-    height: 538,
+    left: 65,
+    paddingHorizontal: 0,
+    paddingVertical: Padding.p_51xl,
     zIndex: 3,
-    left: "50%",
-    position: "absolute",
-    overflow: "hidden",
+    justifyContent: "center",
+    alignItems: "center",
   },
   signupScreen: {
     flex: 1,
     height: 800,
     overflow: "hidden",
-    backgroundColor: Color.white,
     width: "100%",
     justifyContent: "center",
     alignItems: "center",
+    backgroundColor: Color.white,
   },
 });
 
