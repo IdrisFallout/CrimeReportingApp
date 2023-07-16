@@ -1,11 +1,10 @@
-import React, { useCallback } from "react";
+import * as React from "react";
 import {
   ImageBackground,
   StyleSheet,
   View,
   TextInput,
   Text,
-  Alert,
 } from "react-native";
 import { Image } from "expo-image";
 import { Button as RNKButton } from "@ui-kitten/components";
@@ -15,10 +14,6 @@ import { Border, Color, FontFamily, FontSize, Padding } from "../GlobalStyles";
 
 const LoginScreen = () => {
   const navigation = useNavigation();
-
-  const onLoginButtonClick = useCallback(() => {
-    Alert.alert("The Alert!", "Yoo! I think i am a notification");
-  }, []);
 
   return (
     <View style={styles.loginScreen}>
@@ -56,7 +51,7 @@ const LoginScreen = () => {
           appearance="filled"
           color="#224092"
           textStyle={styles.loginButtonText}
-          onLongPress={onLoginButtonClick}
+          onPress={() => navigation.navigate("Dashboard")}
         >
           Login
         </RNKButton>

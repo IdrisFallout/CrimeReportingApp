@@ -5,6 +5,7 @@ import { useFonts } from "expo-font";
 import LoginScreen from "./screens/LoginScreen";
 import SignupScreen1 from "./screens/SignupScreen1";
 import Splashscreen from "./screens/Splashscreen";
+import Dashboard from "./screens/Dashboard";
 import SignupScreen from "./screens/SignupScreen";
 import MIcon from "react-native-vector-icons/MaterialCommunityIcons";
 import { IconRegistry, ApplicationProvider } from "@ui-kitten/components";
@@ -85,6 +86,11 @@ const App = () => {
               <Stack.Screen
                 name="Splashscreen"
                 component={Splashscreen}
+                options={{ headerShown: false }}
+              />
+              <Stack.Screen
+                name="Dashboard"
+                component={Dashboard}
                 options={{ headerShown: false }}
               />
               <Stack.Screen
