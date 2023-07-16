@@ -37,7 +37,7 @@ const SignupScreen1 = () => {
         contentFit="contain"
         source={require("../assets/splashcontents1.png")}
       />
-      <View style={[styles.signupContainer, styles.nameFlexBox]}>
+      <View style={[styles.signupContainer, styles.signupContainerPosition]}>
         <TextInput
           style={[styles.name, styles.pinBorder]}
           placeholder="Full Name"
@@ -126,10 +126,6 @@ const styles = StyleSheet.create({
     position: "absolute",
     overflow: "hidden",
   },
-  nameFlexBox: {
-    justifyContent: "center",
-    alignSelf: "center",
-  },
   pinBorder: {
     padding: 5,
     borderWidth: 1,
@@ -168,8 +164,12 @@ const styles = StyleSheet.create({
     backgroundColor: Color.white,
   },
   name: {
-    alignSelf: "center",
     justifyContent: "center",
+    padding: 5,
+    borderWidth: 1,
+    borderColor: "#000",
+    borderStyle: "solid",
+    alignSelf: "center",
   },
   datePickerParent: {
     alignSelf: "stretch",
@@ -185,6 +185,7 @@ const styles = StyleSheet.create({
     overflow: "hidden",
     width: "100%",
     backgroundColor: Color.white,
+    marginTop: 12,
     alignSelf: "center",
   },
   pin: {
@@ -197,6 +198,7 @@ const styles = StyleSheet.create({
     overflow: "hidden",
     width: "100%",
     backgroundColor: Color.white,
+    marginTop: 12,
   },
   loginButton: {
     paddingHorizontal: Padding.p_75xl,
@@ -217,16 +219,13 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   signupContainer: {
-    marginTop: -221,
     marginLeft: -115,
-    top: "50%",
+    bottom: 0,
     paddingHorizontal: 0,
-    paddingVertical: Padding.p_51xl,
+    paddingVertical: 180,
+    justifyContent: "flex-end",
     alignSelf: "center",
     alignItems: "center",
-    left: "50%",
-    position: "absolute",
-    overflow: "hidden",
   },
   signupScreen: {
     flex: 1,
