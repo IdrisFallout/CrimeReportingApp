@@ -182,6 +182,7 @@ const styles = StyleSheet.create({
     marginTop: -149,
     marginLeft: -109,
     top: "50%",
+    backgroundColor: Color.silver,
     paddingHorizontal: 0,
     paddingVertical: Padding.p_51xl,
     zIndex: 3,
