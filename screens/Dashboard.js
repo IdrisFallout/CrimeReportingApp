@@ -39,8 +39,8 @@ const Dashboard = () => {
           />
         </View>
       </SafeAreaView>
-      <SafeAreaView style={[styles.dashboardChild, styles.dashboardFlexBox]} />
-      <SafeAreaView style={[styles.dashboardItem, styles.dashboardFlexBox]} />
+      <SafeAreaView style={styles.dashboardChild} />
+      <SafeAreaView style={[styles.dashboardItem, styles.dashboardItemBg]} />
     </View>
   );
 };
@@ -61,8 +61,8 @@ const styles = StyleSheet.create({
     width: 24,
     overflow: "hidden",
   },
-  dashboardFlexBox: {
-    justifyContent: "space-between",
+  dashboardItemBg: {
+    backgroundColor: Color.whitesmoke,
     alignSelf: "stretch",
     overflow: "hidden",
   },
@@ -97,17 +97,18 @@ const styles = StyleSheet.create({
     paddingVertical: 0,
     backgroundColor: Color.whitesmoke,
     alignSelf: "stretch",
-    justifyContent: "space-around",
     overflow: "hidden",
   },
   dashboardChild: {
+    alignSelf: "stretch",
     alignItems: "center",
+    overflow: "hidden",
     flex: 1,
-    justifyContent: "space-between",
   },
   dashboardItem: {
+    height: 100,
+    justifyContent: "space-between",
     alignItems: "flex-end",
-    backgroundColor: Color.whitesmoke,
   },
   dashboard: {
     backgroundColor: Color.white,
