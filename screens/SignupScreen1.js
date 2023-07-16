@@ -35,19 +35,27 @@ const SignupScreen1 = () => {
       />
       <View style={[styles.signupContainer, styles.phoneFlexBox]}>
         <TextInput
-          style={[styles.phone, styles.phoneBorder]}
+          style={[styles.phone, styles.pinBorder]}
           placeholder="Phone"
           keyboardType="phone-pad"
           placeholderTextColor="#000"
         />
         <TextInput
-          style={[styles.password, styles.passwordFlexBox]}
+          style={[styles.pin, styles.pinFlexBox]}
           placeholder="PIN"
           keyboardType="numeric"
+          secureTextEntry={true}
+          placeholderTextColor="#000"
+        />
+        <TextInput
+          style={[styles.pin, styles.pinFlexBox]}
+          placeholder="Confirm PIN"
+          keyboardType="numeric"
+          secureTextEntry={true}
           placeholderTextColor="#000"
         />
         <RNKButton
-          style={[styles.loginButton, styles.passwordFlexBox]}
+          style={[styles.loginButton, styles.pinFlexBox]}
           title="Click Me!"
           size="medium"
           status="primary"
@@ -58,7 +66,7 @@ const SignupScreen1 = () => {
         >
           Sign Up
         </RNKButton>
-        <View style={[styles.signupSuggestion, styles.passwordFlexBox]}>
+        <View style={[styles.signupSuggestion, styles.pinFlexBox]}>
           <Text style={[styles.alreadyHaveAn, styles.signUpTypo]}>
             Already have an account?
           </Text>
@@ -105,7 +113,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
   },
-  phoneBorder: {
+  pinBorder: {
     padding: 5,
     borderWidth: 1,
     borderColor: "#000",
@@ -115,7 +123,7 @@ const styles = StyleSheet.create({
     width: "100%",
     backgroundColor: Color.white,
   },
-  passwordFlexBox: {
+  pinFlexBox: {
     marginTop: 12,
     justifyContent: "center",
     alignItems: "center",
@@ -147,7 +155,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
   },
-  password: {
+  pin: {
     padding: 5,
     borderWidth: 1,
     borderColor: "#000",
@@ -174,10 +182,9 @@ const styles = StyleSheet.create({
     flexDirection: "row",
   },
   signupContainer: {
-    marginTop: -149,
+    marginTop: -173,
     marginLeft: -115,
     top: "50%",
-    backgroundColor: Color.silver,
     paddingHorizontal: 0,
     paddingVertical: Padding.p_51xl,
     left: "50%",
