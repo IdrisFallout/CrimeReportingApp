@@ -4,6 +4,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import { useFonts } from "expo-font";
 import LoginScreen from "./screens/LoginScreen";
 import Splashscreen from "./screens/Splashscreen";
+import SignupScreen from "./screens/SignupScreen";
 import MIcon from "react-native-vector-icons/MaterialCommunityIcons";
 import { IconRegistry, ApplicationProvider } from "@ui-kitten/components";
 import * as eva from "@eva-design/eva";
@@ -66,10 +67,7 @@ const App = () => {
       <ApplicationProvider {...eva} theme={eva.light}>
         <NavigationContainer>
           {hideSplashScreen ? (
-            <Stack.Navigator
-              initialRouteName="LoginScreen"
-              screenOptions={{ headerShown: false }}
-            >
+            <Stack.Navigator screenOptions={{ headerShown: false }}>
               <Stack.Screen
                 name="LoginScreen"
                 component={LoginScreen}
@@ -78,6 +76,11 @@ const App = () => {
               <Stack.Screen
                 name="Splashscreen"
                 component={Splashscreen}
+                options={{ headerShown: false }}
+              />
+              <Stack.Screen
+                name="SignupScreen"
+                component={SignupScreen}
                 options={{ headerShown: false }}
               />
             </Stack.Navigator>

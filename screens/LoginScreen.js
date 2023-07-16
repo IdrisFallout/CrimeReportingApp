@@ -6,14 +6,16 @@ import {
   TextInput,
   Text,
   Alert,
-  Linking,
 } from "react-native";
 import { Image } from "expo-image";
 import { Button as RNKButton } from "@ui-kitten/components";
 import { Button } from "@rneui/themed";
-import { Border, Color, FontFamily, FontSize } from "../GlobalStyles";
+import { useNavigation } from "@react-navigation/native";
+import { Border, Color, FontFamily, FontSize, Padding } from "../GlobalStyles";
 
 const LoginScreen = () => {
+  const navigation = useNavigation();
+
   const onLoginButtonClick = useCallback(() => {
     Alert.alert("The Alert!", "Yoo! I think i am a notification");
   }, []);
@@ -40,7 +42,7 @@ const LoginScreen = () => {
         />
         <TextInput
           style={[styles.password, styles.passwordFlexBox]}
-          placeholder="Password"
+          placeholder="PIN"
           keyboardType="numeric"
           placeholderTextColor="#000"
         />
@@ -68,7 +70,7 @@ const LoginScreen = () => {
             type="clear"
             color="#0678be"
             titleStyle={styles.signUpBtn}
-            onPress={() => Linking.openURL("https://github.com/IdrisFallout")}
+            onPress={() => navigation.navigate("SignupScreen")}
             containerStyle={styles.signUpBtn1}
             buttonStyle={styles.signUpBtn2}
           />
@@ -133,7 +135,7 @@ const styles = StyleSheet.create({
   curveDesign: {
     top: 136,
     left: -15,
-    borderRadius: 150,
+    borderRadius: Border.br_131xl,
     width: 842,
     height: 875,
     zIndex: 1,
@@ -160,8 +162,8 @@ const styles = StyleSheet.create({
     backgroundColor: Color.white,
   },
   loginButton: {
-    paddingHorizontal: 94,
-    paddingVertical: 11,
+    paddingHorizontal: Padding.p_75xl,
+    paddingVertical: Padding.p_2xs,
     borderRadius: Border.br_8xs,
     marginTop: 12,
     overflow: "hidden",
@@ -176,10 +178,10 @@ const styles = StyleSheet.create({
     flexDirection: "row",
   },
   loginContainer: {
-    marginLeft: -179,
+    marginLeft: -139,
     bottom: 0,
-    paddingHorizontal: 70,
-    paddingVertical: 225,
+    paddingHorizontal: Padding.p_11xl,
+    paddingVertical: Padding.p_206xl,
     zIndex: 3,
     left: "50%",
     position: "absolute",
