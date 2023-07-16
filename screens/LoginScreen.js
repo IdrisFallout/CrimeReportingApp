@@ -38,13 +38,14 @@ const LoginScreen = () => {
           style={[styles.phone, styles.phoneBorder]}
           placeholder="Phone"
           keyboardType="phone-pad"
-          secureTextEntry={true}
+          secureTextEntry={false}
           placeholderTextColor="#000"
         />
         <TextInput
           style={[styles.password, styles.passwordFlexBox]}
           placeholder="PIN"
           keyboardType="numeric"
+          secureTextEntry={true}
           placeholderTextColor="#000"
         />
         <RNKButton
