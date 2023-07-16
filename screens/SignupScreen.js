@@ -246,11 +246,10 @@ const styles = StyleSheet.create({
     marginTop: 12,
   },
   signupContainer: {
-    marginLeft: -145.5,
+    marginLeft: -145,
     bottom: 0,
     paddingHorizontal: Padding.p_11xl,
-    paddingTop: 70,
-    paddingBottom: 115,
+    paddingVertical: 70,
     zIndex: 3,
     left: "50%",
     position: "absolute",
