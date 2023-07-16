@@ -1,19 +1,17 @@
 import * as React from "react";
 import { Image } from "expo-image";
-import { StyleSheet, View, Text } from "react-native";
+import { StyleSheet, Text, View } from "react-native";
 import { FontFamily, Color } from "../GlobalStyles";
 
 const Splashscreen = () => {
   return (
     <View style={[styles.splashscreen, styles.splashscreenFlexBox]}>
       <View style={[styles.splashcontents, styles.splashscreenFlexBox]}>
-        <View style={[styles.logoContainer, styles.splashscreenFlexBox]}>
-          <Image
-            style={styles.logoIcon}
-            contentFit="cover"
-            source={require("../assets/logo.png")}
-          />
-        </View>
+        <Image
+          style={styles.logoContainerIcon}
+          contentFit="cover"
+          source={require("../assets/logo-container.png")}
+        />
         <Text style={[styles.utumishiKwaWote, styles.splashscreenFlexBox]}>
           UTUMISHI KWA WOTE
         </Text>
@@ -27,25 +25,11 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
   },
-  logoIcon: {
-    width: 91,
-    height: 91,
-  },
-  logoContainer: {
+  logoContainerIcon: {
     borderRadius: 10,
-    backgroundColor: "#224092",
-    shadowColor: "rgba(0, 0, 0, 0.49)",
-    shadowOffset: {
-      width: 4.900000095367432,
-      height: 3.5,
-    },
-    shadowRadius: 4.9,
-    elevation: 4.9,
-    shadowOpacity: 1,
-    width: 109,
-    height: 109,
+    width: 118,
+    height: 118,
     overflow: "hidden",
-    alignItems: "center",
   },
   utumishiKwaWote: {
     fontSize: 11,
@@ -62,7 +46,6 @@ const styles = StyleSheet.create({
     paddingHorizontal: 61,
     paddingVertical: 67,
     overflow: "hidden",
-    alignItems: "center",
   },
   splashscreen: {
     backgroundColor: Color.white,
@@ -70,7 +53,6 @@ const styles = StyleSheet.create({
     width: "100%",
     height: 800,
     overflow: "hidden",
-    alignItems: "center",
   },
 });
 
