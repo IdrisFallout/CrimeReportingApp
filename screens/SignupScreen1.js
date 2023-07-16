@@ -12,18 +12,12 @@ import {
   Datepicker as RNKDatepicker,
   Button as RNKButton,
 } from "@ui-kitten/components";
-import DropDownPicker from "react-native-dropdown-picker";
 import { Button } from "@rneui/themed";
 import { useNavigation } from "@react-navigation/native";
 import { Border, Color, FontFamily, FontSize, Padding } from "../GlobalStyles";
 
 const SignupScreen1 = () => {
   const [dOBDatePicker, setDOBDatePicker] = useState(undefined);
-  const [genderOpen, setGenderOpen] = useState(false);
-  const [genderItems, setGenderItems] = useState([
-    { value: "Male", label: "Male" },
-    { value: "Female", label: "Female" },
-  ]);
   const navigation = useNavigation();
 
   const onLoginButtonClick = useCallback(() => {
@@ -56,17 +50,6 @@ const SignupScreen1 = () => {
             onSelect={setDOBDatePicker}
             controlStyle={styles.dOBDatePickerValue}
           />
-        </View>
-        <View style={[styles.datePickerParent, styles.pinSpaceBlock]}>
-          <View style={styles.gender} placeholder="Gender">
-            <DropDownPicker
-              style={styles.dropdownpicker}
-              open={genderOpen}
-              setOpen={setGenderOpen}
-              items={genderItems}
-              dropDownContainerStyle={styles.genderdropDownContainer}
-            />
-          </View>
         </View>
         <TextInput
           style={[styles.phone, styles.pinSpaceBlock]}
@@ -124,12 +107,6 @@ const SignupScreen1 = () => {
 
 const styles = StyleSheet.create({
   dOBDatePickerValue: {},
-  genderdropDownContainer: {
-    backgroundColor: "#fff",
-    borderStyle: "solid",
-    borderColor: "#000",
-    borderWidth: 1,
-  },
   loginButtonText: {
     fontWeight: "800",
     fontFamily: "Roboto",
@@ -198,19 +175,6 @@ const styles = StyleSheet.create({
     alignSelf: "stretch",
     overflow: "hidden",
   },
-  dropdownpicker: {
-    borderWidth: 1,
-    borderColor: "#000",
-    borderStyle: "solid",
-    backgroundColor: Color.white,
-  },
-  gender: {
-    alignSelf: "flex-start",
-    borderStyle: "solid",
-    borderRadius: Border.br_8xs,
-    justifyContent: "center",
-    overflow: "hidden",
-  },
   phone: {
     padding: 5,
     borderWidth: 1,
@@ -253,7 +217,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   signupContainer: {
-    marginTop: -245,
+    marginTop: -221,
     marginLeft: -115,
     top: "50%",
     paddingHorizontal: 0,
