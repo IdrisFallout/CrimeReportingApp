@@ -21,7 +21,7 @@ const LoginScreen = () => {
   }, []);
 
   return (
-    <View style={[styles.loginScreen, styles.phoneFlexBox]}>
+    <View style={styles.loginScreen}>
       <ImageBackground
         style={[styles.kenyaFlagBackgroundIcon, styles.iconPosition]}
         resizeMode="cover"
@@ -33,7 +33,7 @@ const LoginScreen = () => {
         contentFit="contain"
         source={require("../assets/splashcontents.png")}
       />
-      <View style={styles.loginContainer}>
+      <View style={[styles.loginContainer, styles.phoneFlexBox]}>
         <TextInput
           style={[styles.phone, styles.phoneBorder]}
           placeholder="Phone"
@@ -95,10 +95,6 @@ const styles = StyleSheet.create({
     position: "relative",
   },
   signUpBtn2: {},
-  phoneFlexBox: {
-    justifyContent: "center",
-    alignItems: "center",
-  },
   iconPosition: {
     height: 221,
     width: 360,
@@ -107,6 +103,11 @@ const styles = StyleSheet.create({
     left: "50%",
     position: "absolute",
     overflow: "hidden",
+  },
+  phoneFlexBox: {
+    alignSelf: "center",
+    justifyContent: "center",
+    alignItems: "center",
   },
   phoneBorder: {
     padding: 5,
@@ -185,18 +186,18 @@ const styles = StyleSheet.create({
     paddingVertical: Padding.p_51xl,
     zIndex: 3,
     left: "50%",
+    alignSelf: "center",
     position: "absolute",
-    justifyContent: "center",
-    alignItems: "center",
     overflow: "hidden",
   },
   loginScreen: {
     flex: 1,
     height: 800,
+    justifyContent: "center",
+    alignItems: "center",
     overflow: "hidden",
     width: "100%",
     backgroundColor: Color.white,
-    alignItems: "center",
   },
 });
 
