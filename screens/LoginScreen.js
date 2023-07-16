@@ -6,10 +6,12 @@ import {
   TextInput,
   Text,
   Alert,
+  Linking,
 } from "react-native";
 import { Image } from "expo-image";
-import { Button } from "@ui-kitten/components";
-import { Color, Border } from "../GlobalStyles";
+import { Button as RNKButton } from "@ui-kitten/components";
+import { Button } from "@rneui/themed";
+import { Border, Color, FontFamily, FontSize } from "../GlobalStyles";
 
 const LoginScreen = () => {
   const onLoginButtonClick = useCallback(() => {
@@ -17,7 +19,7 @@ const LoginScreen = () => {
   }, []);
 
   return (
-    <View style={styles.loginScreen}>
+    <View style={[styles.loginScreen, styles.phoneFlexBox]}>
       <ImageBackground
         style={[styles.kenyaFlagBackgroundIcon, styles.iconPosition]}
         resizeMode="cover"
@@ -42,7 +44,7 @@ const LoginScreen = () => {
           keyboardType="numeric"
           placeholderTextColor="#000"
         />
-        <Button
+        <RNKButton
           style={[styles.loginButton, styles.passwordFlexBox]}
           title="Click Me!"
           size="medium"
@@ -53,7 +55,24 @@ const LoginScreen = () => {
           onLongPress={onLoginButtonClick}
         >
           Login
-        </Button>
+        </RNKButton>
+        <View style={[styles.signupSuggestion, styles.passwordFlexBox]}>
+          <Text style={[styles.dontHaveAn, styles.loginTypo]}>
+            Don’t have an account?
+          </Text>
+          <Button
+            style={styles.signUp}
+            title="Sign Up"
+            radius="5"
+            iconPosition="left"
+            type="clear"
+            color="#0678be"
+            titleStyle={styles.signUpBtn}
+            onPress={() => Linking.openURL("https://github.com/IdrisFallout")}
+            containerStyle={styles.signUpBtn1}
+            buttonStyle={styles.signUpBtn2}
+          />
+        </View>
       </View>
     </View>
   );
@@ -63,6 +82,20 @@ const styles = StyleSheet.create({
   loginButtonText: {
     fontWeight: "800",
     fontFamily: "Roboto",
+  },
+  signUpBtn: {
+    color: "#0678be",
+    fontSize: 12,
+    fontWeight: "800",
+    fontFamily: "Roboto",
+  },
+  signUpBtn1: {
+    position: "relative",
+  },
+  signUpBtn2: {},
+  phoneFlexBox: {
+    justifyContent: "center",
+    alignItems: "center",
   },
   iconPosition: {
     height: 221,
@@ -78,15 +111,21 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: "#000",
     borderStyle: "solid",
+    borderRadius: Border.br_8xs,
+    overflow: "hidden",
     width: "100%",
     backgroundColor: Color.white,
   },
   passwordFlexBox: {
     marginTop: 12,
-    borderRadius: Border.br_8xs,
     justifyContent: "center",
     alignItems: "center",
-    overflow: "hidden",
+  },
+  loginTypo: {
+    textAlign: "left",
+    fontFamily: FontFamily.roboto,
+    fontWeight: "800",
+    fontSize: FontSize.size_xs,
   },
   kenyaFlagBackgroundIcon: {
     zIndex: 0,
@@ -107,33 +146,40 @@ const styles = StyleSheet.create({
   },
   phone: {
     alignSelf: "center",
-    borderRadius: Border.br_8xs,
-    padding: 5,
-    borderWidth: 1,
-    borderColor: "#000",
-    borderStyle: "solid",
     justifyContent: "center",
     alignItems: "center",
-    overflow: "hidden",
   },
   password: {
     padding: 5,
     borderWidth: 1,
     borderColor: "#000",
     borderStyle: "solid",
+    borderRadius: Border.br_8xs,
+    overflow: "hidden",
     width: "100%",
     backgroundColor: Color.white,
   },
   loginButton: {
     paddingHorizontal: 94,
     paddingVertical: 11,
+    borderRadius: Border.br_8xs,
+    marginTop: 12,
+    overflow: "hidden",
+  },
+  dontHaveAn: {
+    color: Color.black,
+  },
+  signUp: {
+    marginLeft: 3,
+  },
+  signupSuggestion: {
+    flexDirection: "row",
   },
   loginContainer: {
-    marginLeft: -179.5,
+    marginLeft: -179,
     bottom: 0,
     paddingHorizontal: 70,
-    paddingTop: 260,
-    paddingBottom: 189,
+    paddingVertical: 225,
     zIndex: 3,
     left: "50%",
     position: "absolute",
@@ -144,11 +190,10 @@ const styles = StyleSheet.create({
   loginScreen: {
     flex: 1,
     height: 800,
-    justifyContent: "center",
-    alignItems: "center",
     overflow: "hidden",
     width: "100%",
     backgroundColor: Color.white,
+    alignItems: "center",
   },
 });
 

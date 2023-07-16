@@ -52,7 +52,7 @@ const styles = StyleSheet.create({
     fontStyle: "italic",
     fontWeight: "800",
     fontFamily: FontFamily.roboto,
-    color: "#000",
+    color: Color.black,
     textAlign: "center",
     display: "flex",
     width: 121,
