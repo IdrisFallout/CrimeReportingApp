@@ -1,5 +1,5 @@
 import * as React from "react";
-import { View, StyleSheet, Text } from "react-native";
+import { View, StyleSheet, Text, ScrollView } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { Image } from "expo-image";
 import { Color, FontFamily, FontSize } from "../GlobalStyles";
@@ -39,13 +39,22 @@ const Dashboard = () => {
           />
         </View>
       </SafeAreaView>
-      <SafeAreaView style={styles.dashboardChild} />
+      <ScrollView
+        style={styles.dashboardChild}
+        showsVerticalScrollIndicator={false}
+        showsHorizontalScrollIndicator={false}
+        contentContainerStyle={styles.frameScrollViewContent}
+      />
       <SafeAreaView style={[styles.dashboardItem, styles.dashboardItemBg]} />
     </View>
   );
 };
 
 const styles = StyleSheet.create({
+  frameScrollViewContent: {
+    alignItems: "center",
+    justifyContent: "flex-start",
+  },
   handFlexBox: {
     justifyContent: "space-around",
     flexDirection: "row",
@@ -101,7 +110,6 @@ const styles = StyleSheet.create({
   },
   dashboardChild: {
     alignSelf: "stretch",
-    alignItems: "center",
     overflow: "hidden",
     flex: 1,
   },
