@@ -53,7 +53,6 @@ const styles = StyleSheet.create({
   handFlexBox: {
     justifyContent: "space-around",
     flexDirection: "row",
-    alignItems: "center",
   },
   helloTypo: {
     textAlign: "left",
@@ -72,7 +71,7 @@ const styles = StyleSheet.create({
   },
   leftHandOptionsChild: {
     width: 44,
-    height: 44,
+    height: 41,
   },
   hello: {
     fontSize: 24,
@@ -94,10 +93,12 @@ const styles = StyleSheet.create({
     paddingHorizontal: 7,
     paddingVertical: 9,
     marginLeft: 110,
+    alignItems: "center",
+    justifyContent: "space-around",
   },
   leftHandOptionsParent: {
     paddingHorizontal: 12,
-    paddingTop: 22,
+    paddingVertical: 0,
     alignSelf: "stretch",
     overflow: "hidden",
   },
@@ -116,7 +117,7 @@ const styles = StyleSheet.create({
     width: "100%",
     height: 801,
     overflow: "hidden",
-    alignItems: "center",
+    justifyContent: "flex-end",
     flex: 1,
   },
 });
