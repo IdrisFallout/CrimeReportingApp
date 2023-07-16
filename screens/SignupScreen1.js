@@ -220,7 +220,7 @@ const styles = StyleSheet.create({
     marginLeft: -115,
     bottom: 0,
     paddingTop: 180,
-    paddingBottom: 73,
+    paddingBottom: 120,
     alignSelf: "center",
     alignItems: "center",
     left: "50%",
