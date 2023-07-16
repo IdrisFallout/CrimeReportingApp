@@ -3,13 +3,13 @@ import {
   ImageBackground,
   StyleSheet,
   View,
-  Text,
   TextInput,
+  Text,
   Alert,
 } from "react-native";
 import { Image } from "expo-image";
 import { Button } from "@ui-kitten/components";
-import { FontFamily, Color, Border } from "../GlobalStyles";
+import { Color, Border } from "../GlobalStyles";
 
 const LoginScreen = () => {
   const onLoginButtonClick = useCallback(() => {
@@ -17,34 +17,29 @@ const LoginScreen = () => {
   }, []);
 
   return (
-    <View style={[styles.loginScreen, styles.loginContainerFlexBox]}>
+    <View style={styles.loginScreen}>
       <ImageBackground
-        style={[styles.kenyaFlagBackgroundIcon, styles.splashcontentsPosition]}
+        style={[styles.kenyaFlagBackgroundIcon, styles.iconPosition]}
         resizeMode="cover"
         source={require("../assets/kenyaflagbackground.png")}
       />
       <View style={styles.curveDesign} />
-      <View style={[styles.splashcontents, styles.splashcontentsPosition]}>
-        <View style={[styles.logoContainer, styles.loginContainerFlexBox]}>
-          <Image
-            style={styles.logoIcon}
-            contentFit="cover"
-            source={require("../assets/logo1.png")}
-          />
-        </View>
-        <Text style={[styles.login, styles.loginTypo]}>LOGIN</Text>
-      </View>
-      <View style={[styles.loginContainer, styles.splashcontentsPosition]}>
+      <Image
+        style={[styles.splashcontentsIcon, styles.iconPosition]}
+        contentFit="contain"
+        source={require("../assets/splashcontents.png")}
+      />
+      <View style={styles.loginContainer}>
         <TextInput
           style={[styles.phone, styles.phoneBorder]}
           placeholder="Phone"
-          keyboardType="number-pad"
+          keyboardType="phone-pad"
           placeholderTextColor="#000"
         />
         <TextInput
           style={[styles.password, styles.passwordFlexBox]}
           placeholder="Password"
-          keyboardType="default"
+          keyboardType="numeric"
           placeholderTextColor="#000"
         />
         <Button
@@ -69,18 +64,14 @@ const styles = StyleSheet.create({
     fontWeight: "800",
     fontFamily: "Roboto",
   },
-  loginContainerFlexBox: {
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  splashcontentsPosition: {
+  iconPosition: {
+    height: 221,
+    width: 360,
+    top: 0,
+    marginLeft: -180,
     left: "50%",
     position: "absolute",
     overflow: "hidden",
-  },
-  loginTypo: {
-    fontFamily: FontFamily.roboto,
-    fontWeight: "800",
   },
   phoneBorder: {
     padding: 5,
@@ -99,9 +90,6 @@ const styles = StyleSheet.create({
   },
   kenyaFlagBackgroundIcon: {
     zIndex: 0,
-    top: 0,
-    marginLeft: -180,
-    left: "50%",
   },
   curveDesign: {
     top: 136,
@@ -114,42 +102,8 @@ const styles = StyleSheet.create({
     overflow: "hidden",
     backgroundColor: Color.white,
   },
-  logoIcon: {
-    width: 91,
-    height: 91,
-  },
-  logoContainer: {
-    borderRadius: Border.br_3xs_8,
-    backgroundColor: Color.darkslateblue,
-    shadowColor: "rgba(0, 0, 0, 0.49)",
-    shadowOffset: {
-      width: 4.900000095367432,
-      height: 3.5,
-    },
-    shadowRadius: 4.9,
-    elevation: 4.9,
-    shadowOpacity: 1,
-    width: 109,
-    height: 109,
-    overflow: "hidden",
-    alignItems: "center",
-  },
-  login: {
-    fontSize: 32,
-    color: Color.black,
-    textAlign: "center",
-    marginTop: 21,
-  },
-  splashcontents: {
-    width: 360,
-    height: 221,
-    paddingTop: 53,
+  splashcontentsIcon: {
     zIndex: 2,
-    top: 0,
-    marginLeft: -180,
-    left: "50%",
-    justifyContent: "center",
-    alignItems: "center",
   },
   phone: {
     alignSelf: "center",
@@ -181,14 +135,18 @@ const styles = StyleSheet.create({
     paddingTop: 260,
     paddingBottom: 189,
     zIndex: 3,
+    left: "50%",
+    position: "absolute",
     justifyContent: "center",
     alignItems: "center",
+    overflow: "hidden",
   },
   loginScreen: {
     flex: 1,
     height: 800,
-    overflow: "hidden",
+    justifyContent: "center",
     alignItems: "center",
+    overflow: "hidden",
     width: "100%",
     backgroundColor: Color.white,
   },

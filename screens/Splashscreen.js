@@ -1,7 +1,7 @@
 import * as React from "react";
 import { Image } from "expo-image";
 import { StyleSheet, View, Text } from "react-native";
-import { Border, Color, FontFamily } from "../GlobalStyles";
+import { FontFamily, Color } from "../GlobalStyles";
 
 const Splashscreen = () => {
   return (
@@ -32,8 +32,8 @@ const styles = StyleSheet.create({
     height: 91,
   },
   logoContainer: {
-    borderRadius: Border.br_3xs_8,
-    backgroundColor: Color.darkslateblue,
+    borderRadius: 10,
+    backgroundColor: "#224092",
     shadowColor: "rgba(0, 0, 0, 0.49)",
     shadowOffset: {
       width: 4.900000095367432,
@@ -52,7 +52,7 @@ const styles = StyleSheet.create({
     fontStyle: "italic",
     fontWeight: "800",
     fontFamily: FontFamily.roboto,
-    color: Color.black,
+    color: "#000",
     textAlign: "center",
     display: "flex",
     width: 121,
