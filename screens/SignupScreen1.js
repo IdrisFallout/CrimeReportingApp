@@ -1,8 +1,8 @@
 import React, { useCallback } from "react";
 import {
+  View,
   ImageBackground,
   StyleSheet,
-  View,
   TextInput,
   Text,
   Alert,
@@ -23,13 +23,13 @@ const SignupScreen1 = () => {
   return (
     <View style={styles.signupScreen}>
       <ImageBackground
-        style={[styles.kenyaFlagBackgroundIcon, styles.iconPosition]}
+        style={[styles.kenyaFlagBackgroundIcon, styles.signupContainerPosition]}
         resizeMode="cover"
         source={require("../assets/kenyaflagbackground.png")}
       />
       <View style={styles.curveDesign} />
       <Image
-        style={[styles.splashcontentsIcon, styles.iconPosition]}
+        style={[styles.kenyaFlagBackgroundIcon, styles.signupContainerPosition]}
         contentFit="contain"
         source={require("../assets/splashcontents1.png")}
       />
@@ -95,11 +95,7 @@ const styles = StyleSheet.create({
     position: "relative",
   },
   loginBtn2: {},
-  iconPosition: {
-    height: 221,
-    width: 360,
-    top: 0,
-    marginLeft: -180,
+  signupContainerPosition: {
     left: "50%",
     position: "absolute",
     overflow: "hidden",
@@ -131,7 +127,10 @@ const styles = StyleSheet.create({
     fontSize: FontSize.size_xs,
   },
   kenyaFlagBackgroundIcon: {
-    zIndex: 0,
+    marginLeft: -180,
+    top: 0,
+    width: 360,
+    height: 221,
   },
   curveDesign: {
     top: 136,
@@ -139,13 +138,9 @@ const styles = StyleSheet.create({
     borderRadius: Border.br_131xl,
     width: 842,
     height: 875,
-    zIndex: 1,
     position: "absolute",
     overflow: "hidden",
     backgroundColor: Color.white,
-  },
-  splashcontentsIcon: {
-    zIndex: 2,
   },
   phone: {
     alignSelf: "center",
@@ -185,17 +180,13 @@ const styles = StyleSheet.create({
     backgroundColor: Color.silver,
     paddingHorizontal: 0,
     paddingVertical: Padding.p_51xl,
-    zIndex: 3,
     left: "50%",
-    alignSelf: "center",
     position: "absolute",
     overflow: "hidden",
   },
   signupScreen: {
     flex: 1,
     height: 800,
-    justifyContent: "center",
-    alignItems: "center",
     overflow: "hidden",
     width: "100%",
     backgroundColor: Color.white,
