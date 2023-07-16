@@ -162,8 +162,8 @@ const styles = StyleSheet.create({
     backgroundColor: Color.white,
   },
   loginButton: {
-    paddingHorizontal: 94,
-    paddingVertical: 11,
+    paddingHorizontal: Padding.p_75xl,
+    paddingVertical: Padding.p_2xs,
     borderRadius: Border.br_8xs,
     marginTop: 12,
     overflow: "hidden",
