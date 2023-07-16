@@ -50,14 +50,14 @@ const SignupScreen1 = () => {
           keyboardType="default"
           placeholderTextColor="#000"
         />
-        <View style={[styles.datePickerParent, styles.pinSpaceBlock]}>
+        <View style={[styles.datePickerParent, styles.parentSpaceBlock]}>
           <RNKDatepicker
             date={dOBDatePicker}
             onSelect={setDOBDatePicker}
             controlStyle={styles.dOBDatePickerValue}
           />
         </View>
-        <View style={[styles.datePickerParent, styles.pinSpaceBlock]}>
+        <View style={[styles.genderParent, styles.parentSpaceBlock]}>
           <View style={[styles.gender, styles.pinBorder]} placeholder="Gender">
             <DropDownPicker
               style={[styles.dropdownpicker, styles.pinBorder1]}
@@ -69,27 +69,27 @@ const SignupScreen1 = () => {
           </View>
         </View>
         <TextInput
-          style={[styles.phone, styles.pinSpaceBlock]}
+          style={[styles.phone, styles.parentSpaceBlock]}
           placeholder="Phone"
           keyboardType="phone-pad"
           placeholderTextColor="#000"
         />
         <TextInput
-          style={[styles.pin, styles.pinSpaceBlock]}
+          style={[styles.pin, styles.parentSpaceBlock]}
           placeholder="PIN"
           keyboardType="numeric"
           secureTextEntry={true}
           placeholderTextColor="#000"
         />
         <TextInput
-          style={[styles.pin, styles.pinSpaceBlock]}
+          style={[styles.pin, styles.parentSpaceBlock]}
           placeholder="Confirm PIN"
           keyboardType="numeric"
           secureTextEntry={true}
           placeholderTextColor="#000"
         />
         <RNKButton
-          style={[styles.loginButton, styles.pinSpaceBlock]}
+          style={[styles.loginButton, styles.parentSpaceBlock]}
           title="Click Me!"
           size="medium"
           status="primary"
@@ -100,7 +100,7 @@ const SignupScreen1 = () => {
         >
           Sign Up
         </RNKButton>
-        <View style={[styles.signupSuggestion, styles.pinSpaceBlock]}>
+        <View style={[styles.signupSuggestion, styles.parentSpaceBlock]}>
           <Text style={[styles.alreadyHaveAn, styles.signUpTypo]}>
             Already have an account?
           </Text>
@@ -160,7 +160,7 @@ const styles = StyleSheet.create({
     overflow: "hidden",
     width: "100%",
   },
-  pinSpaceBlock: {
+  parentSpaceBlock: {
     marginTop: 12,
     justifyContent: "center",
   },
@@ -201,6 +201,7 @@ const styles = StyleSheet.create({
   },
   datePickerParent: {
     alignSelf: "stretch",
+    marginTop: 12,
   },
   dropdownpicker: {
     borderStyle: "solid",
@@ -209,6 +210,11 @@ const styles = StyleSheet.create({
   gender: {
     alignSelf: "flex-start",
     justifyContent: "center",
+  },
+  genderParent: {
+    display: "none",
+    alignSelf: "stretch",
+    marginTop: 12,
   },
   phone: {
     padding: 5,
@@ -254,7 +260,7 @@ const styles = StyleSheet.create({
     marginTop: 12,
   },
   signupContainer: {
-    marginTop: -245,
+    marginTop: -221,
     marginLeft: -115,
     top: "50%",
     paddingHorizontal: 0,
