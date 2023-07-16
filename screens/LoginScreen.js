@@ -38,6 +38,7 @@ const LoginScreen = () => {
           style={[styles.phone, styles.phoneBorder]}
           placeholder="Phone"
           keyboardType="phone-pad"
+          secureTextEntry={true}
           placeholderTextColor="#000"
         />
         <TextInput
