@@ -70,7 +70,7 @@ const LoginScreen = () => {
             type="clear"
             color="#0678be"
             titleStyle={styles.signUpBtn}
-            onPress={() => navigation.navigate("SignupScreen1")}
+            onPress={() => navigation.navigate("SignupScreen")}
             containerStyle={styles.signUpBtn1}
             buttonStyle={styles.signUpBtn2}
           />

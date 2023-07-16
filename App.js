@@ -3,9 +3,9 @@ import * as React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { useFonts } from "expo-font";
 import LoginScreen from "./screens/LoginScreen";
-import SignupScreen from "./screens/SignupScreen";
-import Splashscreen from "./screens/Splashscreen";
 import SignupScreen1 from "./screens/SignupScreen1";
+import Splashscreen from "./screens/Splashscreen";
+import SignupScreen from "./screens/SignupScreen";
 import MIcon from "react-native-vector-icons/MaterialCommunityIcons";
 import { IconRegistry, ApplicationProvider } from "@ui-kitten/components";
 import * as eva from "@eva-design/eva";
@@ -79,7 +79,7 @@ const App = () => {
               />
               <Stack.Screen
                 name="SignupScreen"
-                component={SignupScreen}
+                component={SignupScreen1}
                 options={{ headerShown: false }}
               />
               <Stack.Screen
@@ -89,7 +89,7 @@ const App = () => {
               />
               <Stack.Screen
                 name="SignupScreen1"
-                component={SignupScreen1}
+                component={SignupScreen}
                 options={{ headerShown: false }}
               />
             </Stack.Navigator>
