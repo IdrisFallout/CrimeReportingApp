@@ -6,7 +6,7 @@ import { Color, FontFamily, FontSize } from "../GlobalStyles";
 
 const Dashboard = () => {
   return (
-    <View style={[styles.dashboard, styles.dashboardFlexBox1]}>
+    <View style={styles.dashboard}>
       <SafeAreaView style={[styles.leftHandOptionsParent, styles.handFlexBox]}>
         <View style={styles.leftHandOptions}>
           <Image
@@ -46,10 +46,6 @@ const Dashboard = () => {
 };
 
 const styles = StyleSheet.create({
-  dashboardFlexBox1: {
-    justifyContent: "flex-end",
-    alignItems: "center",
-  },
   handFlexBox: {
     justifyContent: "space-around",
     flexDirection: "row",
@@ -66,6 +62,7 @@ const styles = StyleSheet.create({
     overflow: "hidden",
   },
   dashboardFlexBox: {
+    justifyContent: "space-between",
     alignSelf: "stretch",
     overflow: "hidden",
   },
@@ -94,31 +91,30 @@ const styles = StyleSheet.create({
     paddingVertical: 9,
     marginLeft: 110,
     alignItems: "center",
-    justifyContent: "space-around",
   },
   leftHandOptionsParent: {
     paddingHorizontal: 12,
     paddingVertical: 0,
     alignSelf: "stretch",
+    justifyContent: "space-around",
     overflow: "hidden",
   },
   dashboardChild: {
-    backgroundColor: "#e1533f",
-    justifyContent: "flex-end",
+    backgroundColor: "#224092",
     alignItems: "center",
     flex: 1,
-    alignSelf: "stretch",
+    justifyContent: "space-between",
   },
   dashboardItem: {
-    justifyContent: "flex-end",
-    alignItems: "center",
+    alignItems: "flex-end",
   },
   dashboard: {
     backgroundColor: Color.white,
     width: "100%",
     height: 801,
-    overflow: "hidden",
     justifyContent: "flex-end",
+    alignItems: "center",
+    overflow: "hidden",
     flex: 1,
   },
 });
