@@ -93,6 +93,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   leftHandOptionsParent: {
+    backgroundColor: "#f5f5f5",
     paddingHorizontal: 12,
     paddingVertical: 0,
     alignSelf: "stretch",
@@ -100,22 +101,31 @@ const styles = StyleSheet.create({
     overflow: "hidden",
   },
   dashboardChild: {
-    backgroundColor: "#224092",
     alignItems: "center",
     flex: 1,
     justifyContent: "space-between",
   },
   dashboardItem: {
+    shadowColor: "rgba(0, 0, 0, 0.1)",
+    shadowOffset: {
+      width: 0,
+      height: -2,
+    },
+    shadowRadius: 4,
+    elevation: 4,
+    shadowOpacity: 1,
     alignItems: "flex-end",
+    justifyContent: "space-between",
+    backgroundColor: Color.white,
   },
   dashboard: {
-    backgroundColor: Color.white,
     width: "100%",
     height: 801,
     justifyContent: "flex-end",
     alignItems: "center",
     overflow: "hidden",
     flex: 1,
+    backgroundColor: Color.white,
   },
 });
 
