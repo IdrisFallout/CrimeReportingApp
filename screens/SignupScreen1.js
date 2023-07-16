@@ -13,7 +13,7 @@ import { Button } from "@rneui/themed";
 import { useNavigation } from "@react-navigation/native";
 import { Border, Color, FontFamily, FontSize, Padding } from "../GlobalStyles";
 
-const LoginScreen = () => {
+const SignupScreen1 = () => {
   const navigation = useNavigation();
 
   const onLoginButtonClick = useCallback(() => {
@@ -21,7 +21,7 @@ const LoginScreen = () => {
   }, []);
 
   return (
-    <View style={[styles.loginScreen, styles.phoneFlexBox]}>
+    <View style={[styles.signupScreen, styles.phoneFlexBox]}>
       <ImageBackground
         style={[styles.kenyaFlagBackgroundIcon, styles.iconPosition]}
         resizeMode="cover"
@@ -31,7 +31,7 @@ const LoginScreen = () => {
       <Image
         style={[styles.splashcontentsIcon, styles.iconPosition]}
         contentFit="contain"
-        source={require("../assets/splashcontents.png")}
+        source={require("../assets/splashcontents1.png")}
       />
       <View style={styles.loginContainer}>
         <TextInput
@@ -56,23 +56,23 @@ const LoginScreen = () => {
           textStyle={styles.loginButtonText}
           onLongPress={onLoginButtonClick}
         >
-          Login
+          Sign Up
         </RNKButton>
         <View style={[styles.signupSuggestion, styles.passwordFlexBox]}>
-          <Text style={[styles.dontHaveAn, styles.loginTypo]}>
-            Don’t have an account?
+          <Text style={[styles.alreadyHaveAn, styles.signUpTypo]}>
+            Already have an account?
           </Text>
           <Button
-            style={styles.signUp}
-            title="Sign Up"
+            style={styles.login}
+            title="Login"
             radius="5"
             iconPosition="left"
             type="clear"
             color="#0678be"
-            titleStyle={styles.signUpBtn}
-            onPress={() => navigation.navigate("SignupScreen1")}
-            containerStyle={styles.signUpBtn1}
-            buttonStyle={styles.signUpBtn2}
+            titleStyle={styles.loginBtn}
+            onPress={() => navigation.navigate("LoginScreen")}
+            containerStyle={styles.loginBtn1}
+            buttonStyle={styles.loginBtn2}
           />
         </View>
       </View>
@@ -85,16 +85,16 @@ const styles = StyleSheet.create({
     fontWeight: "800",
     fontFamily: "Roboto",
   },
-  signUpBtn: {
+  loginBtn: {
     color: "#0678be",
     fontSize: 12,
     fontWeight: "800",
     fontFamily: "Roboto",
   },
-  signUpBtn1: {
+  loginBtn1: {
     position: "relative",
   },
-  signUpBtn2: {},
+  loginBtn2: {},
   phoneFlexBox: {
     justifyContent: "center",
     alignItems: "center",
@@ -123,7 +123,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
   },
-  loginTypo: {
+  signUpTypo: {
     textAlign: "left",
     fontFamily: FontFamily.roboto,
     fontWeight: "800",
@@ -168,10 +168,10 @@ const styles = StyleSheet.create({
     marginTop: 12,
     overflow: "hidden",
   },
-  dontHaveAn: {
+  alreadyHaveAn: {
     color: Color.black,
   },
-  signUp: {
+  login: {
     marginLeft: 3,
   },
   signupSuggestion: {
@@ -179,7 +179,7 @@ const styles = StyleSheet.create({
   },
   loginContainer: {
     marginTop: -149,
-    marginLeft: -109,
+    marginLeft: -115,
     top: "50%",
     paddingHorizontal: 0,
     paddingVertical: Padding.p_51xl,
@@ -190,7 +190,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     overflow: "hidden",
   },
-  loginScreen: {
+  signupScreen: {
     flex: 1,
     height: 800,
     overflow: "hidden",
@@ -200,4 +200,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default LoginScreen;
+export default SignupScreen1;

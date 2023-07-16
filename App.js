@@ -5,6 +5,7 @@ import { useFonts } from "expo-font";
 import LoginScreen from "./screens/LoginScreen";
 import SignupScreen from "./screens/SignupScreen";
 import Splashscreen from "./screens/Splashscreen";
+import SignupScreen1 from "./screens/SignupScreen1";
 import MIcon from "react-native-vector-icons/MaterialCommunityIcons";
 import { IconRegistry, ApplicationProvider } from "@ui-kitten/components";
 import * as eva from "@eva-design/eva";
@@ -67,7 +68,10 @@ const App = () => {
       <ApplicationProvider {...eva} theme={eva.light}>
         <NavigationContainer>
           {hideSplashScreen ? (
-            <Stack.Navigator screenOptions={{ headerShown: false }}>
+            <Stack.Navigator
+              initialRouteName="LoginScreen"
+              screenOptions={{ headerShown: false }}
+            >
               <Stack.Screen
                 name="LoginScreen"
                 component={LoginScreen}
@@ -81,6 +85,11 @@ const App = () => {
               <Stack.Screen
                 name="Splashscreen"
                 component={Splashscreen}
+                options={{ headerShown: false }}
+              />
+              <Stack.Screen
+                name="SignupScreen1"
+                component={SignupScreen1}
                 options={{ headerShown: false }}
               />
             </Stack.Navigator>
