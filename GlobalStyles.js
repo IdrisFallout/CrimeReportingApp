@@ -9,6 +9,7 @@ export const FontSize = {
 /* Colors */
 export const Color = {
   white: "#fff",
+  whitesmoke: "#f5f5f5",
   black: "#000",
 };
 /* Paddings */
