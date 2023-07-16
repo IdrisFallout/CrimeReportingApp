@@ -57,9 +57,9 @@ const SignupScreen = () => {
           onSelect={setDateOfBirthDatePicker}
           controlStyle={styles.dateOfBirthValue}
         />
-        <View style={styles.gender} placeholder="Gender">
+        <View style={[styles.gender, styles.nameBorder]} placeholder="Gender">
           <DropDownPicker
-            style={styles.dropdownpicker}
+            style={[styles.dropdownpicker, styles.passwordBorder]}
             open={genderOpen}
             setOpen={setGenderOpen}
             items={genderItems}
@@ -168,14 +168,16 @@ const styles = StyleSheet.create({
   },
   nameBorder: {
     padding: 5,
-    borderWidth: 1,
-    borderColor: "#000",
     borderStyle: "solid",
     borderRadius: Border.br_8xs,
     justifyContent: "center",
     alignItems: "center",
     overflow: "hidden",
     width: "100%",
+  },
+  passwordBorder: {
+    borderWidth: 1,
+    borderColor: "#000",
     backgroundColor: Color.white,
   },
   signUpTypo: {
@@ -203,31 +205,33 @@ const styles = StyleSheet.create({
   name: {
     alignSelf: "center",
     padding: 5,
+    borderWidth: 1,
+    borderColor: "#000",
+    backgroundColor: Color.white,
   },
   dateOfBirth: {
     marginTop: 12,
   },
   dropdownpicker: {
-    borderWidth: 1,
-    borderColor: "#000",
     borderStyle: "solid",
-    backgroundColor: Color.white,
+    borderColor: "#000",
   },
   gender: {
     marginTop: 12,
-    borderStyle: "solid",
-    borderRadius: Border.br_8xs,
-    justifyContent: "center",
-    alignItems: "center",
-    overflow: "hidden",
   },
   address: {
     marginTop: 12,
     alignSelf: "center",
     padding: 5,
+    borderWidth: 1,
+    borderColor: "#000",
+    backgroundColor: Color.white,
   },
   password: {
     marginTop: 12,
+    borderWidth: 1,
+    borderColor: "#000",
+    backgroundColor: Color.white,
   },
   signupButton: {
     paddingHorizontal: Padding.p_75xl,
