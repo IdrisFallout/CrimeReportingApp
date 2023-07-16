@@ -50,17 +50,17 @@ const SignupScreen1 = () => {
           keyboardType="default"
           placeholderTextColor="#000"
         />
-        <View style={[styles.datePickerParent, styles.parentSpaceBlock]}>
+        <View style={[styles.datePickerParent, styles.pinSpaceBlock]}>
           <RNKDatepicker
             date={dOBDatePicker}
             onSelect={setDOBDatePicker}
             controlStyle={styles.dOBDatePickerValue}
           />
         </View>
-        <View style={[styles.genderParent, styles.parentSpaceBlock]}>
-          <View style={[styles.gender, styles.pinBorder]} placeholder="Gender">
+        <View style={[styles.datePickerParent, styles.pinSpaceBlock]}>
+          <View style={styles.gender} placeholder="Gender">
             <DropDownPicker
-              style={[styles.dropdownpicker, styles.pinBorder1]}
+              style={styles.dropdownpicker}
               open={genderOpen}
               setOpen={setGenderOpen}
               items={genderItems}
@@ -69,27 +69,27 @@ const SignupScreen1 = () => {
           </View>
         </View>
         <TextInput
-          style={[styles.phone, styles.parentSpaceBlock]}
+          style={[styles.phone, styles.pinSpaceBlock]}
           placeholder="Phone"
           keyboardType="phone-pad"
           placeholderTextColor="#000"
         />
         <TextInput
-          style={[styles.pin, styles.parentSpaceBlock]}
+          style={[styles.pin, styles.pinSpaceBlock]}
           placeholder="PIN"
           keyboardType="numeric"
           secureTextEntry={true}
           placeholderTextColor="#000"
         />
         <TextInput
-          style={[styles.pin, styles.parentSpaceBlock]}
+          style={[styles.pin, styles.pinSpaceBlock]}
           placeholder="Confirm PIN"
           keyboardType="numeric"
           secureTextEntry={true}
           placeholderTextColor="#000"
         />
         <RNKButton
-          style={[styles.loginButton, styles.parentSpaceBlock]}
+          style={[styles.loginButton, styles.pinSpaceBlock]}
           title="Click Me!"
           size="medium"
           status="primary"
@@ -100,7 +100,7 @@ const SignupScreen1 = () => {
         >
           Sign Up
         </RNKButton>
-        <View style={[styles.signupSuggestion, styles.parentSpaceBlock]}>
+        <View style={[styles.signupSuggestion, styles.pinSpaceBlock]}>
           <Text style={[styles.alreadyHaveAn, styles.signUpTypo]}>
             Already have an account?
           </Text>
@@ -150,24 +150,23 @@ const styles = StyleSheet.create({
     overflow: "hidden",
   },
   nameFlexBox: {
+    justifyContent: "center",
     alignSelf: "center",
-    alignItems: "center",
   },
   pinBorder: {
     padding: 5,
-    borderStyle: "solid",
-    borderRadius: Border.br_8xs,
-    overflow: "hidden",
-    width: "100%",
-  },
-  parentSpaceBlock: {
-    marginTop: 12,
-    justifyContent: "center",
-  },
-  pinBorder1: {
     borderWidth: 1,
     borderColor: "#000",
+    borderStyle: "solid",
+    borderRadius: Border.br_8xs,
+    alignItems: "center",
+    overflow: "hidden",
+    width: "100%",
     backgroundColor: Color.white,
+  },
+  pinSpaceBlock: {
+    marginTop: 12,
+    justifyContent: "center",
   },
   signUpTypo: {
     textAlign: "left",
@@ -192,53 +191,48 @@ const styles = StyleSheet.create({
     backgroundColor: Color.white,
   },
   name: {
-    borderWidth: 1,
-    borderColor: "#000",
-    backgroundColor: Color.white,
     alignSelf: "center",
-    alignItems: "center",
     justifyContent: "center",
   },
   datePickerParent: {
     alignSelf: "stretch",
-    marginTop: 12,
+    overflow: "hidden",
   },
   dropdownpicker: {
-    borderStyle: "solid",
+    borderWidth: 1,
     borderColor: "#000",
+    borderStyle: "solid",
+    backgroundColor: Color.white,
   },
   gender: {
     alignSelf: "flex-start",
+    borderStyle: "solid",
+    borderRadius: Border.br_8xs,
     justifyContent: "center",
-  },
-  genderParent: {
-    display: "none",
-    alignSelf: "stretch",
-    marginTop: 12,
+    overflow: "hidden",
   },
   phone: {
     padding: 5,
-    borderStyle: "solid",
-    borderRadius: Border.br_8xs,
-    overflow: "hidden",
-    width: "100%",
     borderWidth: 1,
     borderColor: "#000",
+    borderStyle: "solid",
+    borderRadius: Border.br_8xs,
+    alignItems: "center",
+    overflow: "hidden",
+    width: "100%",
     backgroundColor: Color.white,
     alignSelf: "center",
-    alignItems: "center",
   },
   pin: {
     padding: 5,
-    borderStyle: "solid",
-    borderRadius: Border.br_8xs,
-    overflow: "hidden",
-    width: "100%",
     borderWidth: 1,
     borderColor: "#000",
-    backgroundColor: Color.white,
+    borderStyle: "solid",
+    borderRadius: Border.br_8xs,
     alignItems: "center",
-    marginTop: 12,
+    overflow: "hidden",
+    width: "100%",
+    backgroundColor: Color.white,
   },
   loginButton: {
     paddingHorizontal: Padding.p_75xl,
@@ -257,15 +251,15 @@ const styles = StyleSheet.create({
   signupSuggestion: {
     flexDirection: "row",
     alignItems: "center",
-    marginTop: 12,
   },
   signupContainer: {
-    marginTop: -221,
+    marginTop: -245,
     marginLeft: -115,
     top: "50%",
     paddingHorizontal: 0,
     paddingVertical: Padding.p_51xl,
-    justifyContent: "center",
+    alignSelf: "center",
+    alignItems: "center",
     left: "50%",
     position: "absolute",
     overflow: "hidden",
