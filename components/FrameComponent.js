@@ -1,32 +1,63 @@
-import * as React from "react";
-import { StyleProp, ViewStyle, View, StyleSheet } from "react-native";
+import React, { useCallback } from "react";
+import {
+  StyleProp,
+  ViewStyle,
+  View,
+  StyleSheet,
+  TouchableHighlight,
+  Alert,
+} from "react-native";
 import { Image } from "expo-image";
-import { Border, Color, Padding } from "../GlobalStyles";
+import { Color } from "../GlobalStyles";
 
 const FrameComponent = ({ style }) => {
+  const onIcon1Click = useCallback(() => {
+    Alert.alert("Settings", "");
+  }, []);
+
+  const onIcon2Click = useCallback(() => {
+    Alert.alert("Home", "");
+  }, []);
+
+  const onIcon3Click = useCallback(() => {
+    Alert.alert("Back", "");
+  }, []);
+
   return (
     <View style={[styles.icon1Parent, style, styles.icon1FlexBox]}>
-      <View style={[styles.icon1, styles.icon1FlexBox]}>
+      <TouchableHighlight
+        style={[styles.icon1, styles.icon1FlexBox]}
+        underlayColor="#224092"
+        onPress={onIcon1Click}
+      >
         <Image
           style={[styles.galasettingsIcon, styles.iconPosition]}
           contentFit="cover"
           source={require("../assets/galasettings.png")}
         />
-      </View>
-      <View style={[styles.icon1, styles.icon1FlexBox]}>
+      </TouchableHighlight>
+      <TouchableHighlight
+        style={[styles.icon1, styles.icon1FlexBox]}
+        underlayColor="#224092"
+        onPress={onIcon2Click}
+      >
         <Image
           style={[styles.galasettingsIcon, styles.iconPosition]}
           contentFit="cover"
-          source={require("../assets/ionhome2.png")}
+          source={require("../assets/ionhome.png")}
         />
-      </View>
-      <View style={[styles.icon1, styles.icon1FlexBox]}>
+      </TouchableHighlight>
+      <TouchableHighlight
+        style={[styles.icon1, styles.icon1FlexBox]}
+        underlayColor="#224092"
+        onPress={onIcon3Click}
+      >
         <Image
           style={[styles.mingcutebackLineIcon, styles.iconPosition]}
           contentFit="cover"
-          source={require("../assets/mingcutebackline2.png")}
+          source={require("../assets/mingcutebackline.png")}
         />
-      </View>
+      </TouchableHighlight>
     </View>
   );
 };
@@ -46,21 +77,18 @@ const styles = StyleSheet.create({
     overflow: "hidden",
   },
   galasettingsIcon: {
-    marginLeft: -11.67,
+    marginLeft: -12,
   },
   icon1: {
     flex: 1,
   },
   mingcutebackLineIcon: {
-    marginLeft: -12.33,
+    marginLeft: -12.67,
   },
   icon1Parent: {
-    borderRadius: Border.br_3xs,
     backgroundColor: Color.whitesmoke,
     height: 60,
     flexDirection: "row",
-    paddingHorizontal: Padding.p_3xs,
-    paddingVertical: 0,
     alignItems: "flex-end",
     justifyContent: "space-between",
   },

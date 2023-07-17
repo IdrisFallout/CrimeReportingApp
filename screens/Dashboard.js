@@ -227,7 +227,7 @@ const styles = StyleSheet.create({
   icon1Parent: {
     height: 60,
     alignItems: "flex-end",
-    justifyContent: "space-between",
+    justifyContent: "center",
     flexDirection: "row",
   },
   dashboard: {
