@@ -1,17 +1,32 @@
 import React, { useCallback } from "react";
-import { View, StyleSheet, Text, ScrollView, Alert } from "react-native";
+import {
+  View,
+  StyleSheet,
+  Text,
+  ScrollView,
+  Pressable,
+  Alert,
+} from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { Image } from "expo-image";
 import { Button } from "@rneui/themed";
 import { Color, FontFamily, FontSize } from "../GlobalStyles";
 
 const Dashboard = () => {
-  const onNotificationClick = useCallback(() => {
+  const onNotificationIconClick = useCallback(() => {
     Alert.alert("Notification", "Show all notifications");
   }, []);
 
-  const onQrCodeClick = useCallback(() => {
+  const onStatisticsIconClick = useCallback(() => {
+    Alert.alert("Notification", "Showing previous records");
+  }, []);
+
+  const onQrCodeIconClick = useCallback(() => {
     Alert.alert("Notification", "Showing QR code scanner");
+  }, []);
+
+  const onMaterialSymbolsqrCodeScannClick = useCallback(() => {
+    Alert.alert("Notification", "QR Scanner 2.0");
   }, []);
 
   return (
@@ -31,74 +46,89 @@ const Dashboard = () => {
           </View>
         </View>
         <View style={[styles.rightHandOptions, styles.handFlexBox]}>
-          <Button
+          <Image
             radius="5"
             iconPosition="left"
             type="clear"
-            icon={{ name: "bell-outline", type: "material-community" }}
-            onPress={onNotificationClick}
-            containerStyle={styles.notificationBtn}
-            buttonStyle={styles.notificationBtn1}
+            contentFit="cover"
+            source={require("../assets/notification.png")}
+            onPress={onNotificationIconClick}
+            containerStyle={styles.notificationIconBtn}
+            buttonStyle={styles.notificationIconBtn1}
           />
-          <Button
-            style={styles.statistics}
+          <Image
+            style={styles.statisticsIcon}
             radius="5"
             iconPosition="left"
             type="clear"
-            icon={{ name: "chart-line", type: "material-community" }}
-            onPress={() => {}}
-            containerStyle={styles.statisticsBtn}
-            buttonStyle={styles.statisticsBtn1}
+            contentFit="cover"
+            source={require("../assets/statistics.png")}
+            onPress={onStatisticsIconClick}
+            containerStyle={styles.statisticsIconBtn}
+            buttonStyle={styles.statisticsIconBtn1}
           />
-          <Button
-            style={styles.statistics}
+          <Image
+            style={styles.statisticsIcon}
             radius="5"
             iconPosition="left"
             type="clear"
-            icon={{ name: "qrcode-scan", type: "material-community" }}
-            onPress={onQrCodeClick}
-            containerStyle={styles.qrCodeBtn}
-            buttonStyle={styles.qrCodeBtn1}
+            contentFit="cover"
+            source={require("../assets/qrcode.png")}
+            onPress={onQrCodeIconClick}
+            containerStyle={styles.qrCodeIconBtn}
+            buttonStyle={styles.qrCodeIconBtn1}
           />
         </View>
       </SafeAreaView>
       <ScrollView
-        style={styles.dashboardChild}
+        style={styles.materialSymbolsqrCodeScannWrapper}
         showsVerticalScrollIndicator={false}
         showsHorizontalScrollIndicator={false}
         contentContainerStyle={styles.frameScrollViewContent}
-      />
-      <SafeAreaView style={[styles.dashboardItem, styles.dashboardItemBg]} />
+      >
+        <Pressable
+          style={styles.materialSymbolsqrCodeScann}
+          onPress={onMaterialSymbolsqrCodeScannClick}
+        >
+          <Image
+            style={styles.vectorIcon}
+            contentFit="cover"
+            source={require("../assets/vector.png")}
+          />
+        </Pressable>
+      </ScrollView>
+      <SafeAreaView style={[styles.dashboardChild, styles.dashboardChildBg]} />
     </View>
   );
 };
 
 const styles = StyleSheet.create({
-  notificationBtn: {
+  notificationIconBtn: {
     position: "relative",
   },
-  notificationBtn1: {
+  notificationIconBtn1: {
     width: 24,
     height: 24,
     overflow: "hidden",
   },
-  statisticsBtn: {
+  statisticsIconBtn: {
     position: "relative",
   },
-  statisticsBtn1: {
+  statisticsIconBtn1: {
     width: 24,
     height: 24,
     overflow: "hidden",
   },
-  qrCodeBtn: {
+  qrCodeIconBtn: {
     position: "relative",
   },
-  qrCodeBtn1: {
+  qrCodeIconBtn1: {
     width: 24,
     height: 24,
     overflow: "hidden",
   },
   frameScrollViewContent: {
+    flexDirection: "column",
     alignItems: "center",
     justifyContent: "flex-start",
   },
@@ -112,7 +142,7 @@ const styles = StyleSheet.create({
     fontFamily: FontFamily.roboto,
     fontWeight: "800",
   },
-  dashboardItemBg: {
+  dashboardChildBg: {
     backgroundColor: Color.whitesmoke,
     alignSelf: "stretch",
     overflow: "hidden",
@@ -134,7 +164,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     flex: 1,
   },
-  statistics: {
+  statisticsIcon: {
     marginLeft: 11,
   },
   rightHandOptions: {
@@ -150,12 +180,30 @@ const styles = StyleSheet.create({
     alignSelf: "stretch",
     overflow: "hidden",
   },
-  dashboardChild: {
+  vectorIcon: {
+    position: "absolute",
+    height: "83.33%",
+    width: "83.33%",
+    top: "8.33%",
+    right: "8.33%",
+    bottom: "8.33%",
+    left: "8.33%",
+    maxWidth: "100%",
+    maxHeight: "100%",
+    overflow: "hidden",
+  },
+  materialSymbolsqrCodeScann: {
+    width: 24,
+    height: 24,
+    overflow: "hidden",
+  },
+  materialSymbolsqrCodeScannWrapper: {
+    padding: 10,
     alignSelf: "stretch",
     overflow: "hidden",
     flex: 1,
   },
-  dashboardItem: {
+  dashboardChild: {
     height: 60,
     justifyContent: "space-between",
     alignItems: "flex-end",
