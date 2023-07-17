@@ -17,12 +17,14 @@ const LoginScreen = () => {
 
   return (
     <View style={styles.loginScreen}>
-      <ImageBackground
-        style={[styles.kenyaFlagBackgroundIcon, styles.iconPosition]}
-        resizeMode="cover"
-        source={require("../assets/kenyaflagbackground.png")}
-      />
-      <View style={styles.curveDesign} />
+      <View style={[styles.bgDesign, styles.designLayout]}>
+        <ImageBackground
+          style={[styles.kenyaFlagBackgroundIcon, styles.iconPosition]}
+          resizeMode="cover"
+          source={require("../assets/kenyaflagbackground.png")}
+        />
+        <View style={[styles.curveDesign, styles.designLayout]} />
+      </View>
       <Image
         style={[styles.splashcontentsIcon, styles.iconPosition]}
         contentFit="contain"
@@ -92,12 +94,15 @@ const styles = StyleSheet.create({
     position: "relative",
   },
   signUpBtn2: {},
+  designLayout: {
+    width: 842,
+    position: "absolute",
+  },
   iconPosition: {
     height: 221,
     width: 360,
-    top: 0,
-    marginLeft: -180,
     left: "50%",
+    top: 0,
     position: "absolute",
     overflow: "hidden",
   },
@@ -128,21 +133,29 @@ const styles = StyleSheet.create({
     fontSize: FontSize.size_xs,
   },
   kenyaFlagBackgroundIcon: {
-    zIndex: 0,
+    marginLeft: -406,
   },
   curveDesign: {
     top: 136,
-    left: -15,
+    left: 0,
     borderRadius: Border.br_131xl,
-    width: 842,
     height: 875,
-    zIndex: 1,
+    width: 842,
     position: "absolute",
     overflow: "hidden",
     backgroundColor: Color.white,
   },
+  bgDesign: {
+    left: -15,
+    height: 1011,
+    zIndex: 0,
+    top: 0,
+    width: 842,
+    position: "absolute",
+  },
   splashcontentsIcon: {
-    zIndex: 2,
+    marginLeft: -180,
+    zIndex: 1,
   },
   phone: {
     alignSelf: "center",
@@ -181,7 +194,7 @@ const styles = StyleSheet.create({
     top: "50%",
     paddingHorizontal: 0,
     paddingVertical: 70,
-    zIndex: 3,
+    zIndex: 2,
     left: "50%",
     alignSelf: "center",
     position: "absolute",

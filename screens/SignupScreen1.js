@@ -26,14 +26,16 @@ const SignupScreen1 = () => {
 
   return (
     <View style={styles.signupScreen}>
-      <ImageBackground
-        style={[styles.kenyaFlagBackgroundIcon, styles.signupContainerPosition]}
-        resizeMode="cover"
-        source={require("../assets/kenyaflagbackground.png")}
-      />
-      <View style={styles.curveDesign} />
+      <View style={[styles.bgDesign, styles.designLayout]}>
+        <ImageBackground
+          style={[styles.kenyaFlagBackgroundIcon, styles.iconPosition]}
+          resizeMode="cover"
+          source={require("../assets/kenyaflagbackground.png")}
+        />
+        <View style={[styles.curveDesign, styles.designLayout]} />
+      </View>
       <Image
-        style={[styles.kenyaFlagBackgroundIcon, styles.signupContainerPosition]}
+        style={[styles.splashcontentsIcon, styles.iconPosition]}
         contentFit="contain"
         source={require("../assets/splashcontents1.png")}
       />
@@ -121,8 +123,15 @@ const styles = StyleSheet.create({
     position: "relative",
   },
   loginBtn2: {},
-  signupContainerPosition: {
+  designLayout: {
+    width: 842,
+    position: "absolute",
+  },
+  iconPosition: {
+    height: 221,
+    width: 360,
     left: "50%",
+    top: 0,
     position: "absolute",
     overflow: "hidden",
   },
@@ -152,20 +161,27 @@ const styles = StyleSheet.create({
     fontSize: FontSize.size_xs,
   },
   kenyaFlagBackgroundIcon: {
-    marginLeft: -180,
-    top: 0,
-    width: 360,
-    height: 221,
+    marginLeft: -406,
   },
   curveDesign: {
     top: 136,
-    left: -15,
+    left: 0,
     borderRadius: Border.br_131xl,
-    width: 842,
     height: 875,
+    width: 842,
     position: "absolute",
     overflow: "hidden",
     backgroundColor: Color.white,
+  },
+  bgDesign: {
+    left: -15,
+    height: 1011,
+    top: 0,
+    width: 842,
+    position: "absolute",
+  },
+  splashcontentsIcon: {
+    marginLeft: -180,
   },
   name: {
     alignSelf: "center",
@@ -224,6 +240,7 @@ const styles = StyleSheet.create({
     alignSelf: "center",
     alignItems: "center",
     left: "50%",
+    justifyContent: "center",
     position: "absolute",
     overflow: "hidden",
   },

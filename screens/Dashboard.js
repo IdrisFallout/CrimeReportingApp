@@ -15,7 +15,7 @@ const Dashboard = () => {
             source={require("../assets/frame-4.png")}
           />
           <View style={styles.helloParent}>
-            <Text style={[styles.hello, styles.helloTypo]}>Hello</Text>
+            <Text style={[styles.hello, styles.helloTypo]}>Hello,</Text>
             <Text style={[styles.idrisfallout, styles.helloTypo]}>
               IdrisFallout
             </Text>
