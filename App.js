@@ -3,9 +3,10 @@ import * as React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { useFonts } from "expo-font";
 import LoginScreen from "./screens/LoginScreen";
-import Dashboard from "./screens/Dashboard";
+import BottomTabsActive from "./components/BottomTabsActive";
 import Splashscreen from "./screens/Splashscreen";
 import SignupScreen1 from "./screens/SignupScreen1";
+import Dashboard from "./screens/Dashboard";
 import MIcon from "react-native-vector-icons/MaterialCommunityIcons";
 import { IconRegistry, ApplicationProvider } from "@ui-kitten/components";
 import * as eva from "@eva-design/eva";
@@ -78,11 +79,6 @@ const App = () => {
                 options={{ headerShown: false }}
               />
               <Stack.Screen
-                name="Dashboard"
-                component={Dashboard}
-                options={{ headerShown: false }}
-              />
-              <Stack.Screen
                 name="Splashscreen"
                 component={Splashscreen}
                 options={{ headerShown: false }}
@@ -90,6 +86,11 @@ const App = () => {
               <Stack.Screen
                 name="SignupScreen"
                 component={SignupScreen1}
+                options={{ headerShown: false }}
+              />
+              <Stack.Screen
+                name="Dashboard"
+                component={Dashboard}
                 options={{ headerShown: false }}
               />
             </Stack.Navigator>

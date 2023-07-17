@@ -8,8 +8,8 @@ export const FontSize = {
 };
 /* Colors */
 export const Color = {
-  white: "#fff",
   whitesmoke: "#f5f5f5",
+  white: "#fff",
   black: "#000",
   darkslateblue: "#224092",
 };
