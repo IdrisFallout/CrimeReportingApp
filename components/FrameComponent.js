@@ -17,14 +17,14 @@ const FrameComponent = ({ style }) => {
         <Image
           style={[styles.galasettingsIcon, styles.iconPosition]}
           contentFit="cover"
-          source={require("../assets/ionhome.png")}
+          source={require("../assets/ionhome2.png")}
         />
       </View>
       <View style={[styles.icon1, styles.icon1FlexBox]}>
         <Image
           style={[styles.mingcutebackLineIcon, styles.iconPosition]}
           contentFit="cover"
-          source={require("../assets/mingcutebackline.png")}
+          source={require("../assets/mingcutebackline2.png")}
         />
       </View>
     </View>

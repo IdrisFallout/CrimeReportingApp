@@ -9,7 +9,7 @@ import {
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { Image } from "expo-image";
-import { Color, FontFamily, Border, FontSize, Padding } from "../GlobalStyles";
+import { Color, FontFamily, Border, FontSize } from "../GlobalStyles";
 
 const Dashboard = () => {
   const onNotificationClick = useCallback(() => {
@@ -219,15 +219,13 @@ const styles = StyleSheet.create({
     borderRadius: Border.br_3xs,
   },
   galasettingsIcon: {
-    marginLeft: -11.67,
+    marginLeft: -12,
   },
   mingcutebackLineIcon: {
-    marginLeft: -12.33,
+    marginLeft: -12.67,
   },
   icon1Parent: {
     height: 60,
-    paddingHorizontal: Padding.p_3xs,
-    paddingVertical: 0,
     alignItems: "flex-end",
     justifyContent: "space-between",
     flexDirection: "row",

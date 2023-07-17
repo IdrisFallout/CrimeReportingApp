@@ -15,9 +15,9 @@ export const Color = {
 };
 /* Paddings */
 export const Padding = {
-  p_3xs: 10,
   p_75xl: 94,
   p_2xs: 11,
+  p_3xs: 10,
 };
 /* border radiuses */
 export const Border = {
