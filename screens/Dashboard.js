@@ -1,10 +1,19 @@
-import * as React from "react";
-import { View, StyleSheet, Text, ScrollView } from "react-native";
+import React, { useCallback } from "react";
+import { View, StyleSheet, Text, ScrollView, Alert } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { Image } from "expo-image";
+import { Button } from "@rneui/themed";
 import { Color, FontFamily, FontSize } from "../GlobalStyles";
 
 const Dashboard = () => {
+  const onNotificationClick = useCallback(() => {
+    Alert.alert("Notification", "Show all notifications");
+  }, []);
+
+  const onQrCodeClick = useCallback(() => {
+    Alert.alert("Notification", "Showing QR code scanner");
+  }, []);
+
   return (
     <View style={styles.dashboard}>
       <SafeAreaView style={[styles.leftHandOptionsParent, styles.handFlexBox]}>
@@ -22,20 +31,34 @@ const Dashboard = () => {
           </View>
         </View>
         <View style={[styles.rightHandOptions, styles.handFlexBox]}>
-          <Image
-            style={styles.iconLayout}
-            contentFit="cover"
-            source={require("../assets/basilnotificationoutline.png")}
+          <Button
+            radius="5"
+            iconPosition="left"
+            type="clear"
+            icon={{ name: "bell-outline", type: "material-community" }}
+            onPress={onNotificationClick}
+            containerStyle={styles.notificationBtn}
+            buttonStyle={styles.notificationBtn1}
           />
-          <Image
-            style={[styles.wpfstatisticsIcon, styles.iconLayout]}
-            contentFit="cover"
-            source={require("../assets/wpfstatistics.png")}
+          <Button
+            style={styles.statistics}
+            radius="5"
+            iconPosition="left"
+            type="clear"
+            icon={{ name: "chart-line", type: "material-community" }}
+            onPress={() => {}}
+            containerStyle={styles.statisticsBtn}
+            buttonStyle={styles.statisticsBtn1}
           />
-          <Image
-            style={[styles.wpfstatisticsIcon, styles.iconLayout]}
-            contentFit="cover"
-            source={require("../assets/materialsymbolsqrcodescanner.png")}
+          <Button
+            style={styles.statistics}
+            radius="5"
+            iconPosition="left"
+            type="clear"
+            icon={{ name: "qrcode-scan", type: "material-community" }}
+            onPress={onQrCodeClick}
+            containerStyle={styles.qrCodeBtn}
+            buttonStyle={styles.qrCodeBtn1}
           />
         </View>
       </SafeAreaView>
@@ -51,6 +74,30 @@ const Dashboard = () => {
 };
 
 const styles = StyleSheet.create({
+  notificationBtn: {
+    position: "relative",
+  },
+  notificationBtn1: {
+    width: 24,
+    height: 24,
+    overflow: "hidden",
+  },
+  statisticsBtn: {
+    position: "relative",
+  },
+  statisticsBtn1: {
+    width: 24,
+    height: 24,
+    overflow: "hidden",
+  },
+  qrCodeBtn: {
+    position: "relative",
+  },
+  qrCodeBtn1: {
+    width: 24,
+    height: 24,
+    overflow: "hidden",
+  },
   frameScrollViewContent: {
     alignItems: "center",
     justifyContent: "flex-start",
@@ -64,11 +111,6 @@ const styles = StyleSheet.create({
     color: Color.black,
     fontFamily: FontFamily.roboto,
     fontWeight: "800",
-  },
-  iconLayout: {
-    height: 24,
-    width: 24,
-    overflow: "hidden",
   },
   dashboardItemBg: {
     backgroundColor: Color.whitesmoke,
@@ -92,7 +134,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     flex: 1,
   },
-  wpfstatisticsIcon: {
+  statistics: {
     marginLeft: 11,
   },
   rightHandOptions: {
