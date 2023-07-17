@@ -180,7 +180,7 @@ const styles = StyleSheet.create({
     marginLeft: -109,
     top: "50%",
     paddingHorizontal: 0,
-    paddingVertical: Padding.p_51xl,
+    paddingVertical: 70,
     zIndex: 3,
     left: "50%",
     alignSelf: "center",

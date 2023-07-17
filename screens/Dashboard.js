@@ -77,7 +77,7 @@ const styles = StyleSheet.create({
   },
   leftHandOptionsChild: {
     width: 44,
-    height: 41,
+    height: 44,
   },
   hello: {
     fontSize: 24,
@@ -103,7 +103,7 @@ const styles = StyleSheet.create({
   },
   leftHandOptionsParent: {
     paddingHorizontal: 12,
-    paddingVertical: 0,
+    paddingVertical: 5,
     backgroundColor: Color.whitesmoke,
     alignSelf: "stretch",
     overflow: "hidden",
