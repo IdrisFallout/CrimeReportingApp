@@ -3,13 +3,13 @@ import {
   View,
   StyleSheet,
   Text,
-  TouchableOpacity,
+  TouchableHighlight,
   ScrollView,
   Alert,
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { Image } from "expo-image";
-import { Color, FontFamily, FontSize } from "../GlobalStyles";
+import { Color, FontFamily, FontSize, Border } from "../GlobalStyles";
 
 const Dashboard = () => {
   const onNotificationClick = useCallback(() => {
@@ -41,9 +41,9 @@ const Dashboard = () => {
           </View>
         </View>
         <View style={[styles.rightHandOptions, styles.handFlexBox]}>
-          <TouchableOpacity
-            style={styles.statisticsLayout}
-            activeOpacity={0.2}
+          <TouchableHighlight
+            style={[styles.notification, styles.statisticsLayout]}
+            underlayColor="#224092"
             onPress={onNotificationClick}
           >
             <Image
@@ -54,10 +54,10 @@ const Dashboard = () => {
               contentFit="cover"
               source={require("../assets/notification.png")}
             />
-          </TouchableOpacity>
-          <TouchableOpacity
+          </TouchableHighlight>
+          <TouchableHighlight
             style={[styles.statistics, styles.statisticsLayout]}
-            activeOpacity={0.2}
+            underlayColor="#224092"
             onPress={onStatisticsClick}
           >
             <Image
@@ -68,10 +68,10 @@ const Dashboard = () => {
               contentFit="cover"
               source={require("../assets/statistics.png")}
             />
-          </TouchableOpacity>
-          <TouchableOpacity
+          </TouchableHighlight>
+          <TouchableHighlight
             style={[styles.statistics, styles.statisticsLayout]}
-            activeOpacity={0.2}
+            underlayColor="#4092ff"
             onPress={onQrCodeClick}
           >
             <Image
@@ -82,7 +82,7 @@ const Dashboard = () => {
               contentFit="cover"
               source={require("../assets/qrcode.png")}
             />
-          </TouchableOpacity>
+          </TouchableHighlight>
         </View>
       </SafeAreaView>
       <ScrollView
@@ -143,8 +143,14 @@ const styles = StyleSheet.create({
     top: 0,
     left: 0,
   },
+  notification: {
+    borderRadius: Border.br_8xs,
+    width: 24,
+  },
   statistics: {
     marginLeft: 11,
+    borderRadius: Border.br_8xs,
+    width: 24,
   },
   rightHandOptions: {
     paddingHorizontal: 7,
