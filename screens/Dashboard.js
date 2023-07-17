@@ -9,7 +9,7 @@ import {
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { Image } from "expo-image";
-import { Color, FontFamily, FontSize, Border } from "../GlobalStyles";
+import { Color, FontFamily, Border, FontSize } from "../GlobalStyles";
 
 const Dashboard = () => {
   const onNotificationClick = useCallback(() => {
@@ -42,15 +42,12 @@ const Dashboard = () => {
         </View>
         <View style={[styles.rightHandOptions, styles.handFlexBox]}>
           <TouchableHighlight
-            style={[styles.notification, styles.statisticsLayout]}
+            style={styles.statisticsLayout}
             underlayColor="#224092"
             onPress={onNotificationClick}
           >
             <Image
-              style={[
-                styles.basilnotificationOutlineIcon,
-                styles.statisticsLayout,
-              ]}
+              style={styles.basilnotificationOutlineIcon}
               contentFit="cover"
               source={require("../assets/notification.png")}
             />
@@ -61,10 +58,7 @@ const Dashboard = () => {
             onPress={onStatisticsClick}
           >
             <Image
-              style={[
-                styles.basilnotificationOutlineIcon,
-                styles.statisticsLayout,
-              ]}
+              style={styles.basilnotificationOutlineIcon}
               contentFit="cover"
               source={require("../assets/statistics.png")}
             />
@@ -75,10 +69,7 @@ const Dashboard = () => {
             onPress={onQrCodeClick}
           >
             <Image
-              style={[
-                styles.basilnotificationOutlineIcon,
-                styles.statisticsLayout,
-              ]}
+              style={styles.basilnotificationOutlineIcon}
               contentFit="cover"
               source={require("../assets/qrcode.png")}
             />
@@ -91,7 +82,6 @@ const Dashboard = () => {
         showsHorizontalScrollIndicator={false}
         contentContainerStyle={styles.frameScrollViewContent}
       />
-      <SafeAreaView style={[styles.dashboardItem, styles.dashboardItemBg]} />
     </View>
   );
 };
@@ -114,11 +104,22 @@ const styles = StyleSheet.create({
   statisticsLayout: {
     height: 24,
     width: 24,
+    borderRadius: Border.br_8xs,
     overflow: "hidden",
   },
-  dashboardItemBg: {
+  parentBg: {
     backgroundColor: Color.whitesmoke,
+    borderRadius: Border.br_3xs,
     alignSelf: "stretch",
+    overflow: "hidden",
+  },
+  iconPosition: {
+    left: "50%",
+    top: "50%",
+    marginTop: -12,
+    position: "absolute",
+    height: 24,
+    width: 24,
     overflow: "hidden",
   },
   leftHandOptionsChild: {
@@ -139,18 +140,15 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   basilnotificationOutlineIcon: {
-    position: "absolute",
     top: 0,
     left: 0,
-  },
-  notification: {
-    borderRadius: Border.br_8xs,
+    position: "absolute",
+    height: 24,
     width: 24,
+    overflow: "hidden",
   },
   statistics: {
     marginLeft: 11,
-    borderRadius: Border.br_8xs,
-    width: 24,
   },
   rightHandOptions: {
     paddingHorizontal: 7,
@@ -162,18 +160,15 @@ const styles = StyleSheet.create({
     paddingHorizontal: 12,
     paddingVertical: 5,
     backgroundColor: Color.whitesmoke,
+    borderRadius: Border.br_3xs,
     alignSelf: "stretch",
     overflow: "hidden",
   },
   dashboardChild: {
+    borderRadius: Border.br_3xs,
     alignSelf: "stretch",
     overflow: "hidden",
     flex: 1,
-  },
-  dashboardItem: {
-    height: 60,
-    justifyContent: "space-between",
-    alignItems: "flex-end",
   },
   dashboard: {
     backgroundColor: Color.white,
