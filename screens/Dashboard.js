@@ -3,30 +3,25 @@ import {
   View,
   StyleSheet,
   Text,
+  TouchableOpacity,
   ScrollView,
-  Pressable,
   Alert,
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { Image } from "expo-image";
-import { Button } from "@rneui/themed";
 import { Color, FontFamily, FontSize } from "../GlobalStyles";
 
 const Dashboard = () => {
-  const onNotificationIconClick = useCallback(() => {
-    Alert.alert("Notification", "Show all notifications");
+  const onNotificationClick = useCallback(() => {
+    Alert.alert("Notification", "Showing notification");
   }, []);
 
-  const onStatisticsIconClick = useCallback(() => {
-    Alert.alert("Notification", "Showing previous records");
+  const onStatisticsClick = useCallback(() => {
+    Alert.alert("Notification", "Showing report");
   }, []);
 
-  const onQrCodeIconClick = useCallback(() => {
-    Alert.alert("Notification", "Showing QR code scanner");
-  }, []);
-
-  const onMaterialSymbolsqrCodeScannClick = useCallback(() => {
-    Alert.alert("Notification", "QR Scanner 2.0");
+  const onQrCodeClick = useCallback(() => {
+    Alert.alert("Showing QR code", "");
   }, []);
 
   return (
@@ -46,89 +41,63 @@ const Dashboard = () => {
           </View>
         </View>
         <View style={[styles.rightHandOptions, styles.handFlexBox]}>
-          <Image
-            radius="5"
-            iconPosition="left"
-            type="clear"
-            contentFit="cover"
-            source={require("../assets/notification.png")}
-            onPress={onNotificationIconClick}
-            containerStyle={styles.notificationIconBtn}
-            buttonStyle={styles.notificationIconBtn1}
-          />
-          <Image
-            style={styles.statisticsIcon}
-            radius="5"
-            iconPosition="left"
-            type="clear"
-            contentFit="cover"
-            source={require("../assets/statistics.png")}
-            onPress={onStatisticsIconClick}
-            containerStyle={styles.statisticsIconBtn}
-            buttonStyle={styles.statisticsIconBtn1}
-          />
-          <Image
-            style={styles.statisticsIcon}
-            radius="5"
-            iconPosition="left"
-            type="clear"
-            contentFit="cover"
-            source={require("../assets/qrcode.png")}
-            onPress={onQrCodeIconClick}
-            containerStyle={styles.qrCodeIconBtn}
-            buttonStyle={styles.qrCodeIconBtn1}
-          />
+          <TouchableOpacity
+            style={styles.statisticsLayout}
+            activeOpacity={0.2}
+            onPress={onNotificationClick}
+          >
+            <Image
+              style={[
+                styles.basilnotificationOutlineIcon,
+                styles.statisticsLayout,
+              ]}
+              contentFit="cover"
+              source={require("../assets/notification.png")}
+            />
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={[styles.statistics, styles.statisticsLayout]}
+            activeOpacity={0.2}
+            onPress={onStatisticsClick}
+          >
+            <Image
+              style={[
+                styles.basilnotificationOutlineIcon,
+                styles.statisticsLayout,
+              ]}
+              contentFit="cover"
+              source={require("../assets/statistics.png")}
+            />
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={[styles.statistics, styles.statisticsLayout]}
+            activeOpacity={0.2}
+            onPress={onQrCodeClick}
+          >
+            <Image
+              style={[
+                styles.basilnotificationOutlineIcon,
+                styles.statisticsLayout,
+              ]}
+              contentFit="cover"
+              source={require("../assets/qrcode.png")}
+            />
+          </TouchableOpacity>
         </View>
       </SafeAreaView>
       <ScrollView
-        style={styles.materialSymbolsqrCodeScannWrapper}
+        style={styles.dashboardChild}
         showsVerticalScrollIndicator={false}
         showsHorizontalScrollIndicator={false}
         contentContainerStyle={styles.frameScrollViewContent}
-      >
-        <Pressable
-          style={styles.materialSymbolsqrCodeScann}
-          onPress={onMaterialSymbolsqrCodeScannClick}
-        >
-          <Image
-            style={styles.vectorIcon}
-            contentFit="cover"
-            source={require("../assets/vector.png")}
-          />
-        </Pressable>
-      </ScrollView>
-      <SafeAreaView style={[styles.dashboardChild, styles.dashboardChildBg]} />
+      />
+      <SafeAreaView style={[styles.dashboardItem, styles.dashboardItemBg]} />
     </View>
   );
 };
 
 const styles = StyleSheet.create({
-  notificationIconBtn: {
-    position: "relative",
-  },
-  notificationIconBtn1: {
-    width: 24,
-    height: 24,
-    overflow: "hidden",
-  },
-  statisticsIconBtn: {
-    position: "relative",
-  },
-  statisticsIconBtn1: {
-    width: 24,
-    height: 24,
-    overflow: "hidden",
-  },
-  qrCodeIconBtn: {
-    position: "relative",
-  },
-  qrCodeIconBtn1: {
-    width: 24,
-    height: 24,
-    overflow: "hidden",
-  },
   frameScrollViewContent: {
-    flexDirection: "column",
     alignItems: "center",
     justifyContent: "flex-start",
   },
@@ -142,7 +111,12 @@ const styles = StyleSheet.create({
     fontFamily: FontFamily.roboto,
     fontWeight: "800",
   },
-  dashboardChildBg: {
+  statisticsLayout: {
+    height: 24,
+    width: 24,
+    overflow: "hidden",
+  },
+  dashboardItemBg: {
     backgroundColor: Color.whitesmoke,
     alignSelf: "stretch",
     overflow: "hidden",
@@ -164,7 +138,12 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     flex: 1,
   },
-  statisticsIcon: {
+  basilnotificationOutlineIcon: {
+    position: "absolute",
+    top: 0,
+    left: 0,
+  },
+  statistics: {
     marginLeft: 11,
   },
   rightHandOptions: {
@@ -180,30 +159,12 @@ const styles = StyleSheet.create({
     alignSelf: "stretch",
     overflow: "hidden",
   },
-  vectorIcon: {
-    position: "absolute",
-    height: "83.33%",
-    width: "83.33%",
-    top: "8.33%",
-    right: "8.33%",
-    bottom: "8.33%",
-    left: "8.33%",
-    maxWidth: "100%",
-    maxHeight: "100%",
-    overflow: "hidden",
-  },
-  materialSymbolsqrCodeScann: {
-    width: 24,
-    height: 24,
-    overflow: "hidden",
-  },
-  materialSymbolsqrCodeScannWrapper: {
-    padding: 10,
+  dashboardChild: {
     alignSelf: "stretch",
     overflow: "hidden",
     flex: 1,
   },
-  dashboardChild: {
+  dashboardItem: {
     height: 60,
     justifyContent: "space-between",
     alignItems: "flex-end",
