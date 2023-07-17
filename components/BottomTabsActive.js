@@ -8,12 +8,19 @@ const BottomTabsActive = () => {
       <View style={styles.icon1} />
       <View style={styles.icon1} />
       <View style={styles.icon1} />
+      <View style={styles.icon11} />
+      <View style={styles.icon11} />
+      <View style={styles.icon11} />
     </View>
   );
 };
 
 const styles = StyleSheet.create({
   icon1: {
+    width: 340,
+    display: "none",
+  },
+  icon11: {
     width: 113,
     display: "none",
   },
