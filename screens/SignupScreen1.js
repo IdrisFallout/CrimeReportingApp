@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from "react";
+import React, { useCallback } from "react";
 import {
   View,
   ImageBackground,
@@ -8,16 +8,12 @@ import {
   Alert,
 } from "react-native";
 import { Image } from "expo-image";
-import {
-  Datepicker as RNKDatepicker,
-  Button as RNKButton,
-} from "@ui-kitten/components";
+import { Button as RNKButton } from "@ui-kitten/components";
 import { Button } from "@rneui/themed";
 import { useNavigation } from "@react-navigation/native";
 import { Border, Color, FontFamily, FontSize, Padding } from "../GlobalStyles";
 
 const SignupScreen1 = () => {
-  const [dOBDatePicker, setDOBDatePicker] = useState(undefined);
   const navigation = useNavigation();
 
   const onLoginButtonClick = useCallback(() => {
@@ -46,35 +42,28 @@ const SignupScreen1 = () => {
           keyboardType="default"
           placeholderTextColor="#000"
         />
-        <View style={[styles.datePickerParent, styles.pinSpaceBlock]}>
-          <RNKDatepicker
-            date={dOBDatePicker}
-            onSelect={setDOBDatePicker}
-            controlStyle={styles.dOBDatePickerValue}
-          />
-        </View>
         <TextInput
-          style={[styles.phone, styles.pinSpaceBlock]}
+          style={[styles.phone, styles.pinFlexBox]}
           placeholder="Phone"
           keyboardType="phone-pad"
           placeholderTextColor="#000"
         />
         <TextInput
-          style={[styles.pin, styles.pinSpaceBlock]}
+          style={[styles.pin, styles.pinFlexBox]}
           placeholder="PIN"
           keyboardType="numeric"
           secureTextEntry={true}
           placeholderTextColor="#000"
         />
         <TextInput
-          style={[styles.pin, styles.pinSpaceBlock]}
+          style={[styles.pin, styles.pinFlexBox]}
           placeholder="Confirm PIN"
           keyboardType="numeric"
           secureTextEntry={true}
           placeholderTextColor="#000"
         />
         <RNKButton
-          style={[styles.loginButton, styles.pinSpaceBlock]}
+          style={[styles.loginButton, styles.pinFlexBox]}
           title="Click Me!"
           size="medium"
           status="primary"
@@ -85,7 +74,7 @@ const SignupScreen1 = () => {
         >
           Sign Up
         </RNKButton>
-        <View style={[styles.signupSuggestion, styles.pinSpaceBlock]}>
+        <View style={[styles.signupSuggestion, styles.pinFlexBox]}>
           <Text style={[styles.alreadyHaveAn, styles.signUpTypo]}>
             Already have an account?
           </Text>
@@ -108,16 +97,15 @@ const SignupScreen1 = () => {
 };
 
 const styles = StyleSheet.create({
-  dOBDatePickerValue: {},
   loginButtonText: {
     fontWeight: "800",
-    fontFamily: "Roboto",
+    fontFamily: "Roboto-Black",
   },
   loginBtn: {
     color: "#0678be",
     fontSize: 12,
     fontWeight: "800",
-    fontFamily: "Roboto",
+    fontFamily: "Roboto-Black",
   },
   loginBtn1: {
     position: "relative",
@@ -137,6 +125,7 @@ const styles = StyleSheet.create({
   },
   nameFlexBox: {
     justifyContent: "center",
+    alignItems: "center",
     alignSelf: "center",
   },
   pinBorder: {
@@ -145,18 +134,18 @@ const styles = StyleSheet.create({
     borderColor: "#000",
     borderStyle: "solid",
     borderRadius: Border.br_8xs,
-    alignItems: "center",
     overflow: "hidden",
     width: "100%",
     backgroundColor: Color.white,
   },
-  pinSpaceBlock: {
+  pinFlexBox: {
     marginTop: 12,
     justifyContent: "center",
+    alignItems: "center",
   },
   signUpTypo: {
     textAlign: "left",
-    fontFamily: FontFamily.roboto,
+    fontFamily: FontFamily.robotoBlack,
     fontWeight: "800",
     fontSize: FontSize.size_xs,
   },
@@ -186,10 +175,7 @@ const styles = StyleSheet.create({
   name: {
     alignSelf: "center",
     justifyContent: "center",
-  },
-  datePickerParent: {
-    alignSelf: "stretch",
-    overflow: "hidden",
+    alignItems: "center",
   },
   phone: {
     padding: 5,
@@ -197,7 +183,6 @@ const styles = StyleSheet.create({
     borderColor: "#000",
     borderStyle: "solid",
     borderRadius: Border.br_8xs,
-    alignItems: "center",
     overflow: "hidden",
     width: "100%",
     backgroundColor: Color.white,
@@ -209,7 +194,6 @@ const styles = StyleSheet.create({
     borderColor: "#000",
     borderStyle: "solid",
     borderRadius: Border.br_8xs,
-    alignItems: "center",
     overflow: "hidden",
     width: "100%",
     backgroundColor: Color.white,
@@ -219,7 +203,6 @@ const styles = StyleSheet.create({
     paddingVertical: Padding.p_2xs,
     borderRadius: Border.br_8xs,
     marginTop: 12,
-    alignItems: "center",
     overflow: "hidden",
   },
   alreadyHaveAn: {
@@ -230,17 +213,16 @@ const styles = StyleSheet.create({
   },
   signupSuggestion: {
     flexDirection: "row",
-    alignItems: "center",
   },
   signupContainer: {
     marginLeft: -115,
     bottom: 0,
+    height: 587,
     paddingTop: 180,
     paddingBottom: 120,
     alignSelf: "center",
-    alignItems: "center",
     left: "50%",
-    justifyContent: "center",
+    alignItems: "center",
     position: "absolute",
     overflow: "hidden",
   },

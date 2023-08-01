@@ -9,7 +9,7 @@ const Icon2 = ({ style }) => {
       <Image
         style={styles.ionhomeIcon}
         contentFit="cover"
-        source={require("../assets/ionhome1.png")}
+        source={require("../assets/ionhome11.png")}
       />
     </View>
   );

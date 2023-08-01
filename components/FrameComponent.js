@@ -44,7 +44,7 @@ const FrameComponent = ({ style }) => {
         <Image
           style={[styles.galasettingsIcon, styles.iconPosition]}
           contentFit="cover"
-          source={require("../assets/ionhome.png")}
+          source={require("../assets/ionhome1.png")}
         />
       </TouchableHighlight>
       <TouchableHighlight

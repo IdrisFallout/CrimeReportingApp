@@ -9,7 +9,7 @@ import {
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { Image } from "expo-image";
-import { Color, FontFamily, Border, FontSize } from "../GlobalStyles";
+import { Color, FontFamily, FontSize, Border } from "../GlobalStyles";
 
 const Dashboard = () => {
   const onNotificationClick = useCallback(() => {
@@ -54,12 +54,15 @@ const Dashboard = () => {
         </View>
         <View style={[styles.rightHandOptions, styles.handFlexBox]}>
           <TouchableHighlight
-            style={styles.statisticsLayout}
+            style={[styles.notification, styles.statisticsLayout]}
             underlayColor="#224092"
             onPress={onNotificationClick}
           >
             <Image
-              style={styles.basilnotificationOutlineIcon}
+              style={[
+                styles.basilnotificationOutlineIcon,
+                styles.iconPosition1,
+              ]}
               contentFit="cover"
               source={require("../assets/notification.png")}
             />
@@ -70,7 +73,10 @@ const Dashboard = () => {
             onPress={onStatisticsClick}
           >
             <Image
-              style={styles.basilnotificationOutlineIcon}
+              style={[
+                styles.basilnotificationOutlineIcon,
+                styles.iconPosition1,
+              ]}
               contentFit="cover"
               source={require("../assets/statistics.png")}
             />
@@ -81,7 +87,10 @@ const Dashboard = () => {
             onPress={onQrCodeClick}
           >
             <Image
-              style={styles.basilnotificationOutlineIcon}
+              style={[
+                styles.basilnotificationOutlineIcon,
+                styles.iconPosition1,
+              ]}
               contentFit="cover"
               source={require("../assets/qrcode.png")}
             />
@@ -100,11 +109,18 @@ const Dashboard = () => {
           underlayColor="#224092"
           onPress={onIcon1Click}
         >
-          <Image
-            style={[styles.galasettingsIcon, styles.iconPosition]}
-            contentFit="cover"
-            source={require("../assets/galasettings.png")}
-          />
+          <>
+            <Image
+              style={[styles.galasettingsIcon, styles.iconPosition]}
+              contentFit="cover"
+              source={require("../assets/galasettings.png")}
+            />
+            <Image
+              style={[styles.ionhomeIcon, styles.iconPosition1]}
+              contentFit="cover"
+              source={require("../assets/ionhome.png")}
+            />
+          </>
         </TouchableHighlight>
         <TouchableHighlight
           style={styles.icon1FlexBox}
@@ -114,7 +130,7 @@ const Dashboard = () => {
           <Image
             style={[styles.galasettingsIcon, styles.iconPosition]}
             contentFit="cover"
-            source={require("../assets/ionhome.png")}
+            source={require("../assets/ionhome1.png")}
           />
         </TouchableHighlight>
         <TouchableHighlight
@@ -128,6 +144,13 @@ const Dashboard = () => {
             source={require("../assets/mingcutebackline.png")}
           />
         </TouchableHighlight>
+      </View>
+      <View style={styles.fluentadd12FilledWrapper}>
+        <Image
+          style={styles.fluentadd12FilledIcon}
+          contentFit="cover"
+          source={require("../assets/fluentadd12filled.png")}
+        />
       </View>
     </View>
   );
@@ -145,13 +168,17 @@ const styles = StyleSheet.create({
   helloTypo: {
     textAlign: "left",
     color: Color.black,
-    fontFamily: FontFamily.roboto,
+    fontFamily: FontFamily.robotoBlack,
     fontWeight: "800",
   },
   statisticsLayout: {
     height: 24,
     width: 24,
-    borderRadius: Border.br_8xs,
+  },
+  iconPosition1: {
+    left: 0,
+    top: 0,
+    position: "absolute",
     overflow: "hidden",
   },
   icon1FlexBox: {
@@ -191,15 +218,19 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   basilnotificationOutlineIcon: {
-    top: 0,
-    left: 0,
-    position: "absolute",
     height: 24,
+    width: 24,
+  },
+  notification: {
+    borderRadius: Border.br_8xs,
     width: 24,
     overflow: "hidden",
   },
   statistics: {
     marginLeft: 11,
+    borderRadius: Border.br_8xs,
+    width: 24,
+    overflow: "hidden",
   },
   rightHandOptions: {
     paddingHorizontal: 7,
@@ -210,25 +241,51 @@ const styles = StyleSheet.create({
   leftHandOptionsParent: {
     paddingHorizontal: 12,
     paddingVertical: 5,
+    zIndex: 0,
     backgroundColor: Color.whitesmoke,
     alignSelf: "stretch",
     overflow: "hidden",
     borderRadius: Border.br_3xs,
   },
   dashboardChild: {
+    zIndex: 1,
     borderRadius: Border.br_3xs,
   },
   galasettingsIcon: {
     marginLeft: -12,
   },
+  ionhomeIcon: {
+    width: 512,
+    height: 512,
+  },
   mingcutebackLineIcon: {
     marginLeft: -12.67,
   },
   icon1Parent: {
-    height: 60,
     alignItems: "flex-end",
     justifyContent: "center",
+    zIndex: 2,
+    height: 60,
     flexDirection: "row",
+  },
+  fluentadd12FilledIcon: {
+    top: 10,
+    left: 10,
+    width: 40,
+    height: 40,
+    position: "absolute",
+    overflow: "hidden",
+  },
+  fluentadd12FilledWrapper: {
+    top: 657,
+    left: 276,
+    borderRadius: 30,
+    backgroundColor: Color.darkslateblue,
+    width: 60,
+    alignSelf: "flex-end",
+    zIndex: 3,
+    height: 60,
+    position: "absolute",
   },
   dashboard: {
     backgroundColor: Color.white,

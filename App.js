@@ -3,9 +3,9 @@ import * as React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { useFonts } from "expo-font";
 import LoginScreen from "./screens/LoginScreen";
+import Splashscreen from "./screens/Splashscreen";
 import Dashboard from "./screens/Dashboard";
 import SignupScreen1 from "./screens/SignupScreen1";
-import Splashscreen from "./screens/Splashscreen";
 import BottomTabsActive from "./components/BottomTabsActive";
 import MIcon from "react-native-vector-icons/MaterialCommunityIcons";
 import { IconRegistry, ApplicationProvider } from "@ui-kitten/components";
@@ -23,8 +23,8 @@ import {
 const App = () => {
   const [hideSplashScreen, setHideSplashScreen] = React.useState(false);
   const [fontsLoaded, error] = useFonts({
-    Roboto_extrabold: require("./assets/fonts/Roboto_extrabold.ttf"),
-    Roboto_extrabold_italic: require("./assets/fonts/Roboto_extrabold_italic.ttf"),
+    "Roboto-Black": require("./assets/fonts/Roboto-Black.ttf"),
+    "Roboto-Italic": require("./assets/fonts/Roboto-Italic.ttf"),
   });
 
   React.useEffect(() => {
@@ -79,6 +79,11 @@ const App = () => {
                 options={{ headerShown: false }}
               />
               <Stack.Screen
+                name="Splashscreen"
+                component={Splashscreen}
+                options={{ headerShown: false }}
+              />
+              <Stack.Screen
                 name="Dashboard"
                 component={Dashboard}
                 options={{ headerShown: false }}
@@ -86,11 +91,6 @@ const App = () => {
               <Stack.Screen
                 name="SignupScreen"
                 component={SignupScreen1}
-                options={{ headerShown: false }}
-              />
-              <Stack.Screen
-                name="Splashscreen"
-                component={Splashscreen}
                 options={{ headerShown: false }}
               />
             </Stack.Navigator>

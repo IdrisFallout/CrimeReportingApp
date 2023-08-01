@@ -82,13 +82,13 @@ const LoginScreen = () => {
 const styles = StyleSheet.create({
   loginButtonText: {
     fontWeight: "800",
-    fontFamily: "Roboto",
+    fontFamily: "Roboto-Black",
   },
   signUpBtn: {
     color: "#0678be",
     fontSize: 12,
     fontWeight: "800",
-    fontFamily: "Roboto",
+    fontFamily: "Roboto-Black",
   },
   signUpBtn1: {
     position: "relative",
@@ -128,7 +128,7 @@ const styles = StyleSheet.create({
   },
   loginTypo: {
     textAlign: "left",
-    fontFamily: FontFamily.roboto,
+    fontFamily: FontFamily.robotoBlack,
     fontWeight: "800",
     fontSize: FontSize.size_xs,
   },

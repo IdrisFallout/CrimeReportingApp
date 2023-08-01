@@ -35,7 +35,7 @@ const styles = StyleSheet.create({
     fontSize: 11,
     fontStyle: "italic",
     fontWeight: "800",
-    fontFamily: FontFamily.roboto,
+    fontFamily: FontFamily.robotoBlackItalic,
     color: Color.black,
     textAlign: "center",
     display: "flex",

@@ -1,6 +1,7 @@
 /* fonts */
 export const FontFamily = {
-  roboto: "Roboto",
+  robotoBlack: "Roboto-Black",
+  robotoBlackItalic: "Roboto-BlackItalic",
 };
 /* font sizes */
 export const FontSize = {
@@ -9,9 +10,9 @@ export const FontSize = {
 /* Colors */
 export const Color = {
   white: "#fff",
-  whitesmoke: "#f5f5f5",
   black: "#000",
   darkslateblue: "#224092",
+  whitesmoke: "#f5f5f5",
 };
 /* Paddings */
 export const Padding = {
@@ -21,7 +22,7 @@ export const Padding = {
 };
 /* border radiuses */
 export const Border = {
-  br_3xs: 10,
   br_8xs: 5,
   br_131xl: 150,
+  br_3xs: 10,
 };
