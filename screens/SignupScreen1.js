@@ -70,7 +70,7 @@ const SignupScreen1 = () => {
           appearance="filled"
           color="#224092"
           textStyle={styles.loginButtonText}
-          onLongPress={onLoginButtonClick}
+          onPress={onLoginButtonClick}
         >
           Sign Up
         </RNKButton>

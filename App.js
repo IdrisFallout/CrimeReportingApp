@@ -24,7 +24,7 @@ const App = () => {
   const [hideSplashScreen, setHideSplashScreen] = React.useState(false);
   const [fontsLoaded, error] = useFonts({
     "Roboto-Black": require("./assets/fonts/Roboto-Black.ttf"),
-    "Roboto-Italic": require("./assets/fonts/Roboto-Italic.ttf"),
+    "Roboto-BlackItalic": require("./assets/fonts/Roboto-BlackItalic.ttf"),
   });
 
   React.useEffect(() => {

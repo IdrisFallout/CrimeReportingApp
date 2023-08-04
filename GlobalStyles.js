@@ -11,8 +11,8 @@ export const FontSize = {
 export const Color = {
   white: "#fff",
   black: "#000",
-  darkslateblue: "#224092",
   whitesmoke: "#f5f5f5",
+  darkslateblue: "#224092",
 };
 /* Paddings */
 export const Padding = {
