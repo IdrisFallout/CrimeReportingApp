@@ -1,4 +1,5 @@
-import React, { useCallback } from "react";
+import React, {useCallback, useState} from "react";
+import { handlePostRequest } from "../reusable_functions";
 import {
   View,
   ImageBackground,
@@ -15,10 +16,40 @@ import { Border, Color, FontFamily, FontSize, Padding } from "../GlobalStyles";
 
 const SignupScreen1 = () => {
   const navigation = useNavigation();
+  const [fullName, setFullName] = useState('');
+  const [phone, setPhone] = useState('');
+  const [pin, setPin] = useState('');
+  const [confirmPin, setConfirmPin] = useState('');
 
-  const onLoginButtonClick = useCallback(() => {
-    Alert.alert("The Alert!", "Yoo! I think i am a notification");
-  }, []);
+  const onSignupButtonClick = useCallback(async () => {
+    // Create the POST data object using the state variables
+    const postData = {
+      full_name: fullName,
+      phone: phone,
+      pin: pin,
+      confirm_pin: confirmPin,
+    };
+    // all fields should not be empty
+    if (fullName === '' || phone === '' || pin === '' || confirmPin === '') {
+        Alert.alert('Error', 'All fields are required');
+        return;
+    }
+
+    if (postData['pin'] !== postData['confirm_pin']) {
+      Alert.alert('Error', 'PINs do not match');
+      return;
+    }
+    const response = await handlePostRequest(postData, '/auth/signup');
+    Alert.alert('Feedback', response.message);
+    if (response.message === 'Signup successful') {
+        navigation.navigate('LoginScreen');
+    }
+    // Clear the input fields after successful submission (if needed)
+    setFullName('');
+    setPhone('');
+    setPin('');
+    setConfirmPin('');
+  }, [fullName, phone, pin, confirmPin]);
 
   return (
     <View style={styles.signupScreen}>
@@ -41,12 +72,16 @@ const SignupScreen1 = () => {
           placeholder="Full Name"
           keyboardType="default"
           placeholderTextColor="#000"
+          value={fullName}
+          onChangeText={setFullName}
         />
         <TextInput
           style={[styles.phone, styles.pinFlexBox]}
           placeholder="Phone"
           keyboardType="phone-pad"
           placeholderTextColor="#000"
+          value={phone}
+          onChangeText={setPhone}
         />
         <TextInput
           style={[styles.pin, styles.pinFlexBox]}
@@ -54,6 +89,8 @@ const SignupScreen1 = () => {
           keyboardType="numeric"
           secureTextEntry={true}
           placeholderTextColor="#000"
+          value={pin}
+          onChangeText={setPin}
         />
         <TextInput
           style={[styles.pin, styles.pinFlexBox]}
@@ -61,6 +98,8 @@ const SignupScreen1 = () => {
           keyboardType="numeric"
           secureTextEntry={true}
           placeholderTextColor="#000"
+          value={confirmPin}
+          onChangeText={setConfirmPin}
         />
         <RNKButton
           style={[styles.loginButton, styles.pinFlexBox]}
@@ -70,7 +109,7 @@ const SignupScreen1 = () => {
           appearance="filled"
           color="#224092"
           textStyle={styles.loginButtonText}
-          onPress={onLoginButtonClick}
+          onPress={onSignupButtonClick}
         >
           Sign Up
         </RNKButton>
