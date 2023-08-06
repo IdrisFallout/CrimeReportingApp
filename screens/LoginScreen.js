@@ -33,7 +33,7 @@ const LoginScreen = () => {
         const response = await handlePostRequest(postData, '/auth/login');
         Alert.alert('Feedback', response.message);
         if (response.message === 'Login successful') {
-            navigation.navigate('Dashboard');
+            navigation.navigate('Dashboard', { phone: phone });
         }
         // Clear the input fields after successful submission (if needed)
         setPhone('');
