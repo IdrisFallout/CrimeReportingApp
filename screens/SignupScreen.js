@@ -14,7 +14,7 @@ import { Button } from "@rneui/themed";
 import { useNavigation } from "@react-navigation/native";
 import { Border, Color, FontFamily, FontSize, Padding } from "../GlobalStyles";
 
-const SignupScreen1 = () => {
+const SignupScreen = () => {
   const navigation = useNavigation();
   const [fullName, setFullName] = useState('');
   const [phone, setPhone] = useState('');
@@ -39,7 +39,7 @@ const SignupScreen1 = () => {
       Alert.alert('Error', 'PINs do not match');
       return;
     }
-    const response = await handlePostRequest(postData, '/auth/signup');
+    const response = await handlePostRequest(postData, '/user/signup');
     Alert.alert('Feedback', response.message);
     if (response.message === 'Signup successful') {
         navigation.navigate('LoginScreen');
@@ -274,4 +274,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default SignupScreen1;
+export default SignupScreen;

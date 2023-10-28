@@ -1,4 +1,7 @@
-const hostName = 'http://192.168.43.138:5000'; // Replace this with your actual host name
+import {NSD} from 'react-native-nsd';
+import {DeviceEventEmitter} from 'react-native';
+
+const hostName = 'https://report.waithakasam.tech'; // Replace this with your actual host name
 
 const createFinalUrl = (endpoint) => {
     return `${hostName}${endpoint}`;
@@ -52,4 +55,4 @@ const handleGetRequest = async (endpoint) => {
     }
 };
 
-export { handlePostRequest, handleGetRequest };
+export {handlePostRequest, handleGetRequest};

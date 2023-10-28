@@ -5,8 +5,8 @@ import { useFonts } from "expo-font";
 import LoginScreen from "./screens/LoginScreen";
 import Splashscreen from "./screens/Splashscreen";
 import Dashboard from "./screens/Dashboard";
-import SignupScreen1 from "./screens/SignupScreen1";
-import BottomTabsActive from "./components/BottomTabsActive";
+import SignupScreen from "./screens/SignupScreen";
+import SettingsScreen from "./screens/SettingsScreen";
 import MIcon from "react-native-vector-icons/MaterialCommunityIcons";
 import { IconRegistry, ApplicationProvider } from "@ui-kitten/components";
 import * as eva from "@eva-design/eva";
@@ -90,8 +90,13 @@ const App = () => {
               />
               <Stack.Screen
                 name="SignupScreen"
-                component={SignupScreen1}
+                component={SignupScreen}
                 options={{ headerShown: false }}
+              />
+              <Stack.Screen
+                  name="SettingsScreen"
+                  component={SettingsScreen}
+                  options={{ headerShown: false }}
               />
             </Stack.Navigator>
           ) : (

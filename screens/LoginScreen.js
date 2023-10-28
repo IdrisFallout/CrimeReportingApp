@@ -1,5 +1,5 @@
 import * as React from "react";
-import {handlePostRequest} from "../reusable_functions";
+import {handlePostRequest, addNetworkDiscovery} from "../reusable_functions";
 import {
     ImageBackground,
     StyleSheet,
@@ -30,7 +30,8 @@ const LoginScreen = () => {
             Alert.alert('Error', 'All fields are required');
             return;
         }
-        const response = await handlePostRequest(postData, '/auth/login');
+
+        const response = await handlePostRequest(postData, '/user/login');
         Alert.alert('Feedback', response.message);
         if (response.message === 'Login successful') {
             navigation.navigate('Dashboard', { phone: phone });
